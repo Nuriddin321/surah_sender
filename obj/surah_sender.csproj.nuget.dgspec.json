@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/surah_sender.csproj": {}
+    "E:\\Loyiha\\surah_sender\\surah_sender.csproj": {}
   },
   "projects": {
-    "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/surah_sender.csproj": {
+    "E:\\Loyiha\\surah_sender\\surah_sender.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/surah_sender.csproj",
+        "projectUniqueName": "E:\\Loyiha\\surah_sender\\surah_sender.csproj",
         "projectName": "surah_sender",
-        "projectPath": "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/surah_sender.csproj",
-        "packagesPath": "/home/nuriddin/.nuget/packages/",
-        "outputPath": "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/obj/",
+        "projectPath": "E:\\Loyiha\\surah_sender\\surah_sender.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "E:\\Loyiha\\surah_sender\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/nuriddin/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -41,6 +47,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "telegram.bot": {
+              "target": "Package",
+              "version": "[18.0.0, )"
             }
           },
           "imports": [
@@ -61,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
