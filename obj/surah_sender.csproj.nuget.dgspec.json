@@ -41,6 +41,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "telegram.bot": {
+              "target": "Package",
+              "version": "[18.0.0, )"
             }
           },
           "imports": [
