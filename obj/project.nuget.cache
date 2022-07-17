@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "/rZi2MQFB8fUbsUbNmIX+/LZe8OeXoqZMIVWMA3sAV+KCWv0SoCcZjL2McKyBOul9Xd2Asf6a2C5ssiIynK4uQ==",
+  "dgSpecHash": "X0nCNSEdhfmsJC66AkOet2cApLP5m/bjvV53h0uKgj/jWQWYrHg7ByG/yrliwyt1LmP/0/k6KENraYgKLnfa5w==",
   "success": true,
   "projectFilePath": "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/surah_sender.csproj",
   "expectedPackageFiles": [
     "/home/nuriddin/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "/home/nuriddin/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/nuriddin/.nuget/packages/newtonsoft.json/12.0.2/newtonsoft.json.12.0.2.nupkg.sha512",
     "/home/nuriddin/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "/home/nuriddin/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "/home/nuriddin/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
-    "/home/nuriddin/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+    "/home/nuriddin/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
+    "/home/nuriddin/.nuget/packages/telegram.bot/18.0.0/telegram.bot.18.0.0.nupkg.sha512"
   ],
   "logs": []
 }
