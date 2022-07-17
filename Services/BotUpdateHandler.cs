@@ -8,7 +8,7 @@ public class BotUpdateHandler : IUpdateHandler
     private readonly ILogger<BotUpdateHandler> _logger;
     public BotUpdateHandler(ILogger<BotUpdateHandler> logger)
     {
-        _logger = logger;
+        _logger = logger; 
     }
     public Task HandlePollingErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
     {
