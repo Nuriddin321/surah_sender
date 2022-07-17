@@ -1,9 +1,10 @@
 using Telegram.Bot;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 
 namespace surah_sender.Services;
-public class BotUpdateHandler : IUpdateHandler
+public partial class BotUpdateHandler : IUpdateHandler
 {
     private readonly ILogger<BotUpdateHandler> _logger;
     public BotUpdateHandler(ILogger<BotUpdateHandler> logger)
@@ -12,15 +13,33 @@ public class BotUpdateHandler : IUpdateHandler
     }
     public Task HandlePollingErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
-    }
-    public Task HandleUpdateAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException(); 
+        _logger.LogInformation("Error occured with Telegram Bot {e.Message}", exception);
+
+        return Task.CompletedTask;
     }
 
-    public Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+    public async Task HandleUpdateAsync(ITelegramBotClient botClient,
+                                        Update update,
+                                        CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+
+        
+
+        var handler = update.Type switch
+        {
+            UpdateType.Message => HandleMessageAsync(botClient, update.Message, cancellationToken), // => userning  botga yuborgan xabarni "Type"i  "Message" bo'lsa HandleMessageAsync metodini chaqiradi, bu metod BotUpdateHandler.Message.cs da joylashgan
+            _ => HandleUnknownUpdateAsync(botClient, update, cancellationToken)
+        };
+
+        try
+        {
+            await handler;
+        }
+        catch (Exception e)
+        {
+            await HandlePollingErrorAsync(botClient, e, cancellationToken);
+        }
     }
+
+    
 }
