@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VV0W6JTZOsTBX4NqbCtHk2XANTS8Lmom5jY20b5pqQ8YUvzbPDaz6MW3faAfGAeEufO+a3i+7s896O1S80EoFg==",
+  "dgSpecHash": "EW+D43aknrnKJP96iQMEAZhz2NY/4QiTd6CSMZczAgGQ5co1TBXwUQ9U7fjRcWciwzQ6B6saDVu9DKX0QJIFdw==",
   "success": true,
-  "projectFilePath": "/home/nuriddin/Desktop/MyApp/temp/surah_sender.csproj",
+  "projectFilePath": "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/surah_sender.csproj",
   "expectedPackageFiles": [
     "/home/nuriddin/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/nuriddin/.nuget/packages/microsoft.data.sqlite.core/6.0.6/microsoft.data.sqlite.core.6.0.6.nupkg.sha512",
