@@ -40,8 +40,10 @@ public partial class BotUpdateHandler
                                               CancellationToken token)
     {
         var from = message.From;
-        _logger.LogInformation("From: {from.Firstname} : {message.Text}", from?.FirstName, message.Text);
-
+        _logger.LogInformation(
+            "From: {from.Firstname} : {message.Text} | Msg ID: {message.MessageId} | ChatID: {message.Chat.Id}", from?.FirstName, message.Text, message.MessageId, message.Chat.Id);
+     
+        
         var handler = message.Text switch
         {
             "/start" => HandleStartAsync(botClient, message, token),
@@ -62,6 +64,14 @@ public partial class BotUpdateHandler
             message.Chat.Id,
             photo: "https://raw.githubusercontent.com/Nuriddin321/imgs/main/Screenshot%20from%202022-07-17%2016-34-50.jpg",
             cancellationToken: cancellationToken);
+
+        // await botClient.ForwardMessageAsync(
+        //     chatId: message.Chat.Id,
+        //     fromChatId: -662629376,
+        //     341,
+        //     cancellationToken: cancellationToken
+
+        // );
 
 
         await botClient.SendTextMessageAsync(
