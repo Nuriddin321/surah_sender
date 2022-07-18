@@ -1,11 +1,15 @@
 
+using Telegram.Bot;
+using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums; 
+
 namespace SurahSender.Services;
 
 public partial class BotUpdateHandler
 {
     private async Task HandleMessageAsync(ITelegramBotClient botClient,
-                                        Message? message,
-                                        CancellationToken cancellationToken)
+                                          Message? message,
+                                          CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(message);
 
@@ -20,12 +24,11 @@ public partial class BotUpdateHandler
         };
 
         await handler;
-  
     }
 
     private Task HandleUnknownMessageAsync(ITelegramBotClient botClient,
-                                       Message message,
-                                       CancellationToken cancellationToken)
+                                           Message message,
+                                           CancellationToken cancellationToken)
     {
         _logger.LogInformation("Received message type {message.Type}", message.Type);
 
@@ -39,22 +42,33 @@ public partial class BotUpdateHandler
         var from = message.From;
         _logger.LogInformation("From: {from.Firstname}", from?.FirstName);
 
-        if (message.Text == "/start")
+        var handler = message.Text switch
         {
-            await botClient.SendPhotoAsync(
-                message.Chat.Id,
-                photo: "https://raw.githubusercontent.com/Nuriddin321/imgs/main/Screenshot%20from%202022-07-17%2016-34-50.jpg",
-                cancellationToken: cancellationToken);
+            "/start" => HandleStartAsync(botClient, message, token),
 
+            _ => Task.CompletedTask
+        };
 
-            await botClient.SendTextMessageAsync(
-                message.Chat.Id,
-                text: "Qur'on tingla botga xush kelibsiz ",
-                cancellationToken: cancellationToken);
-        }
-        
+        await handler;
     }
 
+   
+    private async Task HandleStartAsync(ITelegramBotClient botClient,
+                                        Message message,
+                                        CancellationToken cancellationToken)
+    {
+        
+        await botClient.SendPhotoAsync(
+            message.Chat.Id,
+            photo: "https://raw.githubusercontent.com/Nuriddin321/imgs/main/Screenshot%20from%202022-07-17%2016-34-50.jpg",
+            cancellationToken: cancellationToken);
 
-
+      
+        await botClient.SendTextMessageAsync(
+            message.Chat.Id,
+            text: $"{message.From?.FirstName ?? "👻"} \nQur'on tingla botga xush kelibsiz",
+            cancellationToken: cancellationToken
+        );
+    }
 }
+

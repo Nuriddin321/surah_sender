@@ -1,5 +1,5 @@
-// using Telegram.Bot;
-// using Telegram.Bot.Types;
+using Telegram.Bot;
+using Telegram.Bot.Types;
 
 namespace SurahSender.Services;
 
@@ -15,10 +15,7 @@ public partial class BotUpdateHandler
 
         _logger.LogInformation("Received CallbackQuery from {from.FirstName} : {query.Data}", from?.FirstName, query.Data);
 
-        await botClient.SendTextMessageAsync(
-            message.Chat.Id,
-            text: "Qur'on tingla botga xush kelibsiz ",
-            cancellationToken: cancellationToken
-        );
+        // return Task.CompletedTask;
     }
+
 }
