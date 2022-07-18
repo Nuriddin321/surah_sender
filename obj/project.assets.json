@@ -1406,11 +1406,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/nuriddin/Desktop/MyApp/temp/surah_sender.csproj",
+      "projectUniqueName": "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/surah_sender.csproj",
       "projectName": "surah_sender",
-      "projectPath": "/home/nuriddin/Desktop/MyApp/temp/surah_sender.csproj",
+      "projectPath": "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/surah_sender.csproj",
       "packagesPath": "/home/nuriddin/.nuget/packages/",
-      "outputPath": "/home/nuriddin/Desktop/MyApp/temp/obj/",
+      "outputPath": "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/nuriddin/.nuget/NuGet/NuGet.Config"
