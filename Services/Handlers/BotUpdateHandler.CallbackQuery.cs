@@ -15,7 +15,22 @@ public partial class BotUpdateHandler
 
         _logger.LogInformation("Received CallbackQuery from {from.FirstName} : {query.Data}", from?.FirstName, query.Data);
 
-        // return Task.CompletedTask;
+        var temp = query.Data;
+        var reciter = query.Data switch
+        {
+            "_audioQuran" => await botClient.SendTextMessageAsync(
+                query.Message.Chat.Id,
+                text: "Qaysi qorining qiroatini tinglamoqchisiz?",
+                replyMarkup: reciters,
+                cancellationToken: cancellationToken),
+
+            _ => await botClient.SendTextMessageAsync(
+                query.Message.Chat.Id,
+                text: $"default",
+                cancellationToken: cancellationToken),
+        };
+        _logger.LogInformation("reciter is {temp}", temp);
+ 
     }
 
 }

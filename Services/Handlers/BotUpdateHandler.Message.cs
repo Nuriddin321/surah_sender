@@ -1,7 +1,7 @@
 
 using Telegram.Bot;
 using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums; 
+using Telegram.Bot.Types.Enums;
 
 namespace SurahSender.Services;
 
@@ -40,7 +40,7 @@ public partial class BotUpdateHandler
                                               CancellationToken token)
     {
         var from = message.From;
-        _logger.LogInformation("From: {from.Firstname}", from?.FirstName);
+        _logger.LogInformation("From: {from.Firstname} : {message.Text}", from?.FirstName, message.Text);
 
         var handler = message.Text switch
         {
@@ -52,23 +52,30 @@ public partial class BotUpdateHandler
         await handler;
     }
 
-   
+
     private async Task HandleStartAsync(ITelegramBotClient botClient,
                                         Message message,
                                         CancellationToken cancellationToken)
     {
-        
+
         await botClient.SendPhotoAsync(
             message.Chat.Id,
             photo: "https://raw.githubusercontent.com/Nuriddin321/imgs/main/Screenshot%20from%202022-07-17%2016-34-50.jpg",
             cancellationToken: cancellationToken);
 
-      
+
         await botClient.SendTextMessageAsync(
             message.Chat.Id,
-            text: $"{message.From?.FirstName ?? "👻"} \nQur'on tingla botga xush kelibsiz",
-            cancellationToken: cancellationToken
-        );
+            text: $"🎉 \t\t\t\t\t\t\t\t\t\t {message.From?.FirstName ?? "👻"} \t\t\t\t\t\t\t\t\t\t  🎉  \n\n Qur'on tingla botga xush kelibsiz \n",
+            cancellationToken: cancellationToken);
+
+
+        await botClient.SendTextMessageAsync(
+            message.Chat.Id,
+            text: "Bo'limni tanlang",
+            replyMarkup: selectSection,
+            cancellationToken: cancellationToken);
+
     }
 }
 

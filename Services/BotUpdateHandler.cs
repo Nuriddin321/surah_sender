@@ -26,7 +26,7 @@ public partial class BotUpdateHandler : IUpdateHandler
     public async Task HandleUpdateAsync(ITelegramBotClient botClient,
                                         Update update,
                                         CancellationToken cancellationToken)
-    {
+    {   _logger.LogInformation("Update type {update.Type} received ", update.Type);
 
         var handler = update.Type switch
         {
