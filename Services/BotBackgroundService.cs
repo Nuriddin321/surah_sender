@@ -1,8 +1,8 @@
-using surah_sender.Services;
+using SurahSender.Services;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
 
-namespace surahSender.Services;
+namespace SurahSender.Services;
 
 public class BotBackgroundService : BackgroundService
 {

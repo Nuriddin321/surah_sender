@@ -1,5 +1,4 @@
-using surah_sender.Services;
-using surahSender.Services;
+using SurahSender.Services; 
 using Telegram.Bot;
 using Telegram.Bot.Polling;
 
