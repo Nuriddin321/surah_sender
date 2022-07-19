@@ -27,12 +27,12 @@ public partial class BotUpdateHandler
             "_videoQuran" => HandleVideoQuranAsync(botClient, query, cancellationToken),
             "_textQuran" => HandleTextQuranAsync(botClient, query, cancellationToken),
             "_alphabet" => HandleAlphabetAsync(botClient, query, cancellationToken),
-         // _ =>  some code here
+            _ =>  Task.CompletedTask
         };
 
         _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
         _logger.LogInformation("reciter is {temp}", queryValue);
-
+        await handler;
     }
 
     private Task HandleAlphabetAsync(ITelegramBotClient botClient, CallbackQuery query, CancellationToken cancellationToken)
