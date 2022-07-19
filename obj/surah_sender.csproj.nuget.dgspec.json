@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Loyiha\\surah_sender\\surah_sender.csproj": {}
+    "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/surah_sender.csproj": {}
   },
   "projects": {
-    "E:\\Loyiha\\surah_sender\\surah_sender.csproj": {
+    "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/surah_sender.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Loyiha\\surah_sender\\surah_sender.csproj",
+        "projectUniqueName": "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/surah_sender.csproj",
         "projectName": "surah_sender",
-        "projectPath": "E:\\Loyiha\\surah_sender\\surah_sender.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "E:\\Loyiha\\surah_sender\\obj\\",
+        "projectPath": "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/surah_sender.csproj",
+        "packagesPath": "/home/nuriddin/.nuget/packages/",
+        "outputPath": "/home/nuriddin/Desktop/MyApp/github/Nuriddin321/surah_sender/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/nuriddin/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -85,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
         }
       }
     }
