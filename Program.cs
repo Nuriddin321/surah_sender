@@ -14,6 +14,7 @@ builder.Services.AddSingleton(p => new TelegramBotClient(token));
 builder.Services.AddSingleton<IUpdateHandler, BotUpdateHandler>();  
 builder.Services.AddHostedService<BotBackgroundService>();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(data));  
+builder.Services.AddScoped<QuranService>();
 
 var app = builder.Build(); 
 
