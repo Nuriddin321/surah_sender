@@ -1,8 +1,6 @@
 using Telegram.Bot;
 using Telegram.Bot.Types;
-
 namespace SurahSender.Services;
-
 public partial class BotUpdateHandler
 {
     private string _reciterName = "default";

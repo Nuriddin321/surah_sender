@@ -1,4 +1,8 @@
- 
+
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SurahSender.Data;
+using SurahSender.Entities;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
@@ -8,13 +12,15 @@ namespace SurahSender.Services;
 
 public partial class BotUpdateHandler : IUpdateHandler
 {
-    private readonly ILogger<BotUpdateHandler> _logger; 
-    public BotUpdateHandler(ILogger<BotUpdateHandler> logger)
-    {
-        _logger = logger; 
-    }
+    private readonly ILogger<BotUpdateHandler> _logger;
 
+    public BotUpdateHandler(
+        ILogger<BotUpdateHandler> logger)
+    {
+        _logger = logger;
+    }
     public Task HandlePollingErrorAsync(ITelegramBotClient botClient,
+
                                         Exception exception,
                                         CancellationToken cancellationToken)
     {
@@ -32,6 +38,7 @@ public partial class BotUpdateHandler : IUpdateHandler
         {
             UpdateType.Message => HandleMessageAsync(botClient, update.Message, cancellationToken),  
             UpdateType.CallbackQuery => HandleCallbackQueryAsync(botClient, update.CallbackQuery, cancellationToken),
+            UpdateType.ChannelPost => HandlerChannelPostAsync(botClient, update.ChannelPost, cancellationToken),
             _ => HandleUnknownUpdate(botClient, update, cancellationToken)
         };
 
@@ -44,7 +51,9 @@ public partial class BotUpdateHandler : IUpdateHandler
             await HandlePollingErrorAsync(botClient, e, cancellationToken);
         }
     }
-  
+
+    
+
     private Task HandleUnknownUpdate(ITelegramBotClient botClient,
                                      Update update,
                                      CancellationToken cancellationToken)
