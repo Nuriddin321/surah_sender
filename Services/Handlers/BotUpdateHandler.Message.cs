@@ -1,4 +1,4 @@
-    
+
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -40,14 +40,12 @@ public partial class BotUpdateHandler
                                               CancellationToken token)
     {
         var from = message.From;
-        _logger.LogInformation(
-            "From: {from.Firstname} : {message.Text} | Msg ID: {message.MessageId} | ChatID: {message.Chat.Id}", from?.FirstName, message.Text, message.MessageId, message.Chat.Id);
-     
         
+        _logger.LogInformation("From: {from.Firstname} : {message.Text} | Msg ID: {message.MessageId} | ChatID: {message.Chat.Id}", from?.FirstName, message.Text, message.MessageId, message.Chat.Id);
+
         var handler = message.Text switch
         {
             "/start" => HandleStartAsync(botClient, message, token),
-
             _ => Task.CompletedTask
         };
 
@@ -67,12 +65,9 @@ public partial class BotUpdateHandler
 
         // await botClient.ForwardMessageAsync(
         //     chatId: message.Chat.Id,
-        //     fromChatId: -662629376,
-        //     341,
-        //     cancellationToken: cancellationToken
-
-        // );
-
+        //     fromChatId: -1001679802094,
+        //     37,
+        //     cancellationToken: cancellationToken);
 
         await botClient.SendTextMessageAsync(
             message.Chat.Id,
@@ -85,7 +80,6 @@ public partial class BotUpdateHandler
             text: "Bo'limni tanlang",
             replyMarkup: selectSection,
             cancellationToken: cancellationToken);
-
     }
 }
 
