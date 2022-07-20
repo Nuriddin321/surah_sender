@@ -1,8 +1,4 @@
-
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SurahSender.Data;
-using SurahSender.Entities;
+ 
 using Telegram.Bot;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
@@ -15,15 +11,12 @@ public partial class BotUpdateHandler : IUpdateHandler
     private readonly ILogger<BotUpdateHandler> _logger;
     private readonly IServiceScopeFactory _scopeFactory;
 
-    public BotUpdateHandler(
-        ILogger<BotUpdateHandler> logger,
-        IServiceScopeFactory scopeFactory)
+    public BotUpdateHandler(ILogger<BotUpdateHandler> logger, IServiceScopeFactory scopeFactory)
     {
         _logger = logger;
         _scopeFactory = scopeFactory;
     }
     public Task HandlePollingErrorAsync(ITelegramBotClient botClient,
-
                                         Exception exception,
                                         CancellationToken cancellationToken)
     {

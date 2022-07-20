@@ -4,7 +4,6 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
 namespace SurahSender.Services;
-
 public partial class BotUpdateHandler
 {
     private async Task HandleMessageAsync(ITelegramBotClient botClient,
@@ -25,7 +24,6 @@ public partial class BotUpdateHandler
 
         await handler;
     }
-
     private Task HandleUnknownMessageAsync(ITelegramBotClient botClient,
                                            Message message,
                                            CancellationToken cancellationToken)
@@ -52,7 +50,6 @@ public partial class BotUpdateHandler
         await handler;
     }
 
-
     private async Task HandleStartAsync(ITelegramBotClient botClient,
                                         Message message,
                                         CancellationToken cancellationToken)
@@ -65,12 +62,8 @@ public partial class BotUpdateHandler
 
         await botClient.SendTextMessageAsync(
             message.Chat.Id,
-            text: $"🎉 \t\t\t\t\t\t\t\t\t\t {message.From?.FirstName ?? "👻"} \t\t\t\t\t\t\t\t\t\t  🎉  \n\n Qur'on tingla botga xush kelibsiz \n",
-            cancellationToken: cancellationToken);
-
-        await botClient.SendTextMessageAsync(
-            message.Chat.Id,
-            text: "Bo'limni tanlang",
+            text: $"🎉 \t\t\t\t\t\t\t\t\t\t {message.From?.FirstName ?? "👻"} \t\t\t\t\t\t\t\t\t\t  🎉  \n\n" +
+                "📿 Qur'on tingla 🤖 botga  xush kelibsiz! \n\n🛒 Bo'limni tanlang 👀 👇", 
             replyMarkup: selectSection,
             cancellationToken: cancellationToken);
     }
