@@ -25,24 +25,24 @@ public partial class BotUpdateHandler
         {
             "_audioQuran" => HandleAudioQuranAsync(botClient, query, cancellationToken),
             "_videoQuran" => HandleVideoQuranAsync(botClient, query, cancellationToken),
-            "_textQuran" => HandleTextQuranAsync(botClient, query, cancellationToken),
+            "_textQuran" or "_arabBook" or "_uzBook" => HandleTextQuranAsync(botClient, query, cancellationToken),
             "_alphabet" => HandleAlphabetAsync(botClient, query, cancellationToken),
             _ => Task.CompletedTask
         };
 
         _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
-        _logger.LogInformation("reciter is {temp}", queryValue);
-        
+        _logger.LogInformation("button is {queryValue}", queryValue);
+
         await handler;
     }
- 
+
     private async Task HandleAudioQuranAsync(ITelegramBotClient botClient,
                                        CallbackQuery query,
                                        CancellationToken cancellationToken)
     {
         await botClient.SendTextMessageAsync(
             query.Message.Chat.Id,
-            text: "Qaysi qorining qiroatini tinglamoqchisiz?",
+            text: "Qaysi 👳🏻‍♂️ qorining qiroatini tinglamoqchisiz?",
             replyMarkup: reciters,
             cancellationToken: cancellationToken);
     }
@@ -51,11 +51,11 @@ public partial class BotUpdateHandler
                                       CallbackQuery query,
                                       CancellationToken cancellationToken)
     {
-        await botClient.SendTextMessageAsync(
-            query.Message.Chat.Id,
-            text: "Qaysi qorining qiroatini tinglamoqchisiz?",
-            replyMarkup: reciters,
-            cancellationToken: cancellationToken);
+        // await botClient.SendTextMessageAsync(
+        //     query.Message.Chat.Id,
+        //     text: "Qaysi qorining qiroatini tinglamoqchisiz?",
+        //     replyMarkup: reciters,
+        //     cancellationToken: cancellationToken);
     }
 
     private async Task HandleTextQuranAsync(ITelegramBotClient botClient,
@@ -63,13 +63,30 @@ public partial class BotUpdateHandler
                                       CancellationToken cancellationToken)
     {
 
-        
-        await botClient.SendDocumentAsync(
-            query.Message.Chat.Id,
-            document: "https://github.com/TelegramBots/book/raw/master/src/docs/photo-ara.jpg",
-            caption: "<b>Ara bird</b>. <i>Source</i>: <a href=\"https://pixabay.com\">Pixabay</a>",
-            cancellationToken: cancellationToken);
+        if (query.Data == "_textQuran")
+        {
+            await botClient.SendTextMessageAsync(
+                query.Message.Chat.Id,
+                text: "Qaysi tilda o'qimoqchisiz?",
+                replyMarkup: books,
+                cancellationToken: cancellationToken);
+        }
+        else if (query.Data == "_uzBook")
+        {
+            var root = Directory.GetCurrentDirectory();
+            var filePath = Path.Combine(root, "quroni-karim-alouddin-mansur.pdf");
 
+            var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
+
+            using var stream = new MemoryStream(bytes);
+
+            await botClient.SendDocumentAsync(
+                query.Message.Chat.Id,
+                document: stream,
+                caption: "Qur'oni Karim. Alouddin Mansur Tarjimasi ",
+                cancellationToken: cancellationToken);
+        }
+          
     }
 
     private async Task HandleAlphabetAsync(ITelegramBotClient botClient, CallbackQuery query, CancellationToken cancellationToken)

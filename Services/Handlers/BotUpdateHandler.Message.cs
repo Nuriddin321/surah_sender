@@ -71,13 +71,8 @@ public partial class BotUpdateHandler
 
         await botClient.SendTextMessageAsync(
             message.Chat.Id,
-            text: $"🎉 \t\t\t\t\t\t\t\t\t\t {message.From?.FirstName ?? "👻"} \t\t\t\t\t\t\t\t\t\t  🎉  \n\n Qur'on tingla botga xush kelibsiz \n",
-            cancellationToken: cancellationToken);
-
-
-        await botClient.SendTextMessageAsync(
-            message.Chat.Id,
-            text: "Bo'limni tanlang",
+            text: $"🎉 \t\t\t\t\t\t\t\t\t\t {message.From?.FirstName ?? "👻"} \t\t\t\t\t\t\t\t\t\t  🎉  \n\n" +
+                "📿 Qur'on tingla botga xush kelibsiz 📿 \n🛒 Bo'limni tanlang", 
             replyMarkup: selectSection,
             cancellationToken: cancellationToken);
     }
