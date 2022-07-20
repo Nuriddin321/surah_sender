@@ -48,7 +48,7 @@ public partial class BotUpdateHandler
         },
     });
 
-    InlineKeyboardMarkup surahs1 = new(new[]
+    InlineKeyboardMarkup buttonsOfSurah1 = new(new[]
     {
         new []
         {
@@ -107,10 +107,10 @@ public partial class BotUpdateHandler
         },
         new []
         {
-            InlineKeyboardButton.WithCallbackData(text: "Keyingisi", callbackData: "_next"), 
+            InlineKeyboardButton.WithCallbackData(text: "Keyingisi", callbackData: "_next1"), 
         },
     });
-    InlineKeyboardMarkup surahs2 = new(new[]
+    InlineKeyboardMarkup buttonsOfSurah2 = new(new[]
     {
         new []
         {
@@ -173,7 +173,7 @@ public partial class BotUpdateHandler
         },
     });
 
-        InlineKeyboardMarkup surahs3 = new(new[]
+        InlineKeyboardMarkup buttonsOfSurah3 = new(new[]
     {
         new []
         {
@@ -224,10 +224,7 @@ public partial class BotUpdateHandler
             InlineKeyboardButton.WithCallbackData(text: "113", callbackData: "113"),
             InlineKeyboardButton.WithCallbackData(text: "114", callbackData: "114"), 
         },
-        new []
-        {
-            InlineKeyboardButton.WithCallbackData(text: "Keyingisi", callbackData: "_next2"), 
-        },
+        
     });
  
 }

@@ -7,8 +7,10 @@ public partial class BotUpdateHandler
 {
     private string _reciterName = "default";
     private string _sectionName = "default";
-    private string _surahName = "default";
-    private QuranService _scopSelect;
+    private int _surahNumber = 0;
+
+
+    // private QuranService _scopSelect;
     // private int surah;
     private async Task HandleCallbackQueryAsync(ITelegramBotClient botClient,
                                           CallbackQuery query,
@@ -19,7 +21,7 @@ public partial class BotUpdateHandler
         _logger.LogInformation("Received CallbackQuery from {from.FirstName} : {query.Data}", query.From?.FirstName, query.Data);
 
         var queryValue = query.Data;
-  
+
         _logger.LogInformation("button is {queryValue}", queryValue);
 
         var handler = query.Data switch
@@ -28,43 +30,88 @@ public partial class BotUpdateHandler
             "_videoQuran" => HandleVideoQuranAsync(botClient, query, cancellationToken),
             "_textQuran" or "_arabBook" or "_uzBook" => HandleTextQuranAsync(botClient, query, cancellationToken),
             "_alphabet" => HandleAlphabetAsync(botClient, query, cancellationToken),
-            "" => HandleFotihaAsync(botClient, query, cancellationToken),
-            //"_reciter1/2/3 => some code
+            "_next1" or "_next2" => HandleViewOfSurahsync(botClient, query, cancellationToken),
+            "_reciters1" or "_reciters2" or "_reciters3" => HandleRecitersAsync(botClient, query, cancellationToken),
             _ => HandleSurahAsync(botClient, query, cancellationToken)
         };
 
-        _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
-        _logger.LogInformation("reciter is {temp}", queryValue);
 
+    }
+
+    private async Task HandleViewOfSurahsync(ITelegramBotClient botClient, CallbackQuery query, CancellationToken cancellationToken)
+    {
+        if (query.Data == "_next1")
+        {
+            var root = Directory.GetCurrentDirectory();
+            var filePath = Path.Combine(root, "img41-80.png");
+
+            var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
+
+            using var stream = new MemoryStream(bytes);
+            await botClient.SendPhotoAsync(
+                query.Message.Chat.Id,
+                photo: stream,
+                replyMarkup: buttonsOfSurah2,
+                cancellationToken: cancellationToken);
+        }
+        else if (query.Data == "_next2")
+        {
+            var root = Directory.GetCurrentDirectory();
+            var filePath = Path.Combine(root, "img81-114.png");
+
+            var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
+
+            using var stream = new MemoryStream(bytes);
+            await botClient.SendPhotoAsync(
+                query.Message.Chat.Id,
+                photo: stream,
+                replyMarkup: buttonsOfSurah3,
+                cancellationToken: cancellationToken);
+        }
+
+    }
+
+    private async Task HandleRecitersAsync(ITelegramBotClient botClient, CallbackQuery query, CancellationToken cancellationToken)
+    {
+        _reciterName = query.Data;
+        _logger.LogInformation("buttonVlaue is {queryValue}", query.Data);
+
+        var root = Directory.GetCurrentDirectory();
+        var filePath = Path.Combine(root, "img1-40.png");
+
+        var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
+
+        using var stream = new MemoryStream(bytes);
+        await botClient.SendPhotoAsync(
+            query.Message.Chat.Id,
+            photo: stream,
+            replyMarkup: buttonsOfSurah1,
+            cancellationToken: cancellationToken);
+
+        await botClient.SendTextMessageAsync(
+            query.Message.Chat.Id,
+            text: "",
+            replyMarkup: buttonsOfSurah1,
+            cancellationToken: cancellationToken);
     }
 
     private async Task HandleSurahAsync(ITelegramBotClient botClient, CallbackQuery query, CancellationToken cancellationToken)
     {
-        
-         
-    }
- 
-    private async Task HandleFotihaAsync(ITelegramBotClient botClient, CallbackQuery query, CancellationToken cancellationToken)
-    {
-        // await botClient.SendTextMessageAsync(
-        //     query.Message.Chat.Id,
-        //     text: viewOfSurahNumbers,
-        //     replyMarkup: surahs1,
-        //     cancellationToken: cancellationToken);
+        _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
+        _logger.LogInformation("buttonVlaue is {queryValue}", query.Data);
+        _surahNumber = int.Parse(query.Data);
+        _logger.LogInformation("_surahNumber is {surahNumber}", _surahNumber);
 
-        // await botClient.ForwardMessageAsync(
-        //     chatId: query.Message.Chat.Id,
-        //     fromChatId: -1001407276572,
-        //     10,
-        //     cancellationToken: cancellationToken);
     }
 
+     
     private async Task HandleAudioQuranAsync(ITelegramBotClient botClient,
                                        CallbackQuery query,
                                        CancellationToken cancellationToken)
     {
         _sectionName = query.Data;
         _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
+
         await botClient.SendTextMessageAsync(
             query.Message.Chat.Id,
             text: "Qaysi 👳🏻‍♂️ qorining qiroatini tinglamoqchisiz?",
@@ -76,36 +123,33 @@ public partial class BotUpdateHandler
                                       CallbackQuery query,
                                       CancellationToken cancellationToken)
     {
-        await botClient.SendTextMessageAsync(
-         query.Message.Chat.Id,
-         text: "Qaysi qorining qiroatini tinglamoqchisiz?",
-         replyMarkup: MarcupHelpers.GetKeyboardMarkup(
-            new Dictionary<string, string>
-            {
-                {"Fotiha", "001"},
-                {"Nas", "002"},
-                {"Ift", "003"},
-                {"Fotiha1", "004"},
-                {"Fotiha2", "005"},
-
-            }
-         ),
-         cancellationToken: cancellationToken);
         _sectionName = query.Data;
         _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
-        
-        // await botClient.ForwardMessageAsync(
-        //     chatId: message.Chat.Id,
-        //     fromChatId: -1001679802094,
-        //     37,
-        //     cancellationToken: cancellationToken);
+
+        var root = Directory.GetCurrentDirectory();
+        var filePath = Path.Combine(root, "img1-40.png");
+
+        var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
+
+        using var stream = new MemoryStream(bytes);
+
+        await botClient.SendPhotoAsync(
+            query.Message.Chat.Id,
+            photo: stream,
+            replyMarkup: buttonsOfSurah1,
+            cancellationToken: cancellationToken);
+
+        await botClient.SendTextMessageAsync(
+            query.Message.Chat.Id,
+            text: "",
+            replyMarkup: buttonsOfSurah1,
+            cancellationToken: cancellationToken);
     }
 
     private async Task HandleTextQuranAsync(ITelegramBotClient botClient,
                                       CallbackQuery query,
                                       CancellationToken cancellationToken)
     {
-
         if (query.Data == "_textQuran")
         {
             await botClient.SendTextMessageAsync(
