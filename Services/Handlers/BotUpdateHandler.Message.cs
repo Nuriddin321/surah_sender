@@ -4,7 +4,6 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
 namespace SurahSender.Services;
-
 public partial class BotUpdateHandler
 {
     private async Task HandleMessageAsync(ITelegramBotClient botClient,
@@ -25,7 +24,6 @@ public partial class BotUpdateHandler
 
         await handler;
     }
-
     private Task HandleUnknownMessageAsync(ITelegramBotClient botClient,
                                            Message message,
                                            CancellationToken cancellationToken)
@@ -51,7 +49,6 @@ public partial class BotUpdateHandler
 
         await handler;
     }
-
 
     private async Task HandleStartAsync(ITelegramBotClient botClient,
                                         Message message,

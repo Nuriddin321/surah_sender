@@ -48,8 +48,6 @@ public partial class BotUpdateHandler : IUpdateHandler
         }
     }
 
-    
-
     private Task HandleUnknownUpdate(ITelegramBotClient botClient,
                                      Update update,
                                      CancellationToken cancellationToken)
@@ -59,3 +57,4 @@ public partial class BotUpdateHandler : IUpdateHandler
         return Task.CompletedTask;
     }
 }
+

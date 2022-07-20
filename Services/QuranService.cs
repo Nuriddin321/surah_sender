@@ -15,7 +15,7 @@ public class QuranService
 
     public async Task<(bool IsSuccess, string? ErrorMessage)> AddDataAsync(Quran quran)
     {
-        if(await Exists(quran.IdOfMessage))
+        if (await Exists(quran.IdOfMessage))
             return (false, "Quran exists");
         try
         {
@@ -23,7 +23,7 @@ public class QuranService
             await _context.SaveChangesAsync();
             return (true, null);
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             return (false, e.Message);
         }
