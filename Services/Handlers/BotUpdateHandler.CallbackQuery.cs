@@ -83,7 +83,7 @@ public partial class BotUpdateHandler
             await botClient.SendDocumentAsync(
                 query.Message.Chat.Id,
                 document: stream,
-                caption: "Qur'oni Karim. Alouddin Mansur Tarjimasi ",
+                caption: "📖 Qur'oni Karim. Alouddin Mansur Tarjimasi ",
                 cancellationToken: cancellationToken);
         } 
         else if (query.Data == "_arabBook")
@@ -98,7 +98,7 @@ public partial class BotUpdateHandler
             await botClient.SendDocumentAsync(
                 query.Message.Chat.Id,
                 document: stream,
-                caption: "Qur'oni Karim. Alouddin Mansur Tarjimasi ",
+                caption: "📖 Qur'oni Karim",
                 cancellationToken: cancellationToken);
         }
           
