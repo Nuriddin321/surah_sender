@@ -15,11 +15,8 @@ public partial class BotUpdateHandler
         _logger.LogInformation("Received CallbackQuery from {from.FirstName} : {query.Data}", query.From?.FirstName, query.Data);
 
         var queryValue = query.Data;
-
-        if (queryValue == "_audioQuran")
-        {
-            _sectionName = queryValue;
-        }
+  
+        _logger.LogInformation("button is {queryValue}", queryValue);
 
         var handler = query.Data switch
         {
@@ -28,10 +25,7 @@ public partial class BotUpdateHandler
             "_textQuran" or "_arabBook" or "_uzBook" => HandleTextQuranAsync(botClient, query, cancellationToken),
             "_alphabet" => HandleAlphabetAsync(botClient, query, cancellationToken),
             _ => Task.CompletedTask
-        };
-
-        _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
-        _logger.LogInformation("button is {queryValue}", queryValue);
+        }; 
 
         await handler;
     }
@@ -40,6 +34,8 @@ public partial class BotUpdateHandler
                                        CallbackQuery query,
                                        CancellationToken cancellationToken)
     {
+        _sectionName = query.Data;
+        _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
         await botClient.SendTextMessageAsync(
             query.Message.Chat.Id,
             text: "Qaysi 👳🏻‍♂️ qorining qiroatini tinglamoqchisiz?",
@@ -51,7 +47,10 @@ public partial class BotUpdateHandler
                                       CallbackQuery query,
                                       CancellationToken cancellationToken)
     {
-       // await botClient.ForwardMessageAsync(
+        _sectionName = query.Data;
+        _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
+        
+        // await botClient.ForwardMessageAsync(
         //     chatId: message.Chat.Id,
         //     fromChatId: -1001679802094,
         //     37,
@@ -85,7 +84,7 @@ public partial class BotUpdateHandler
                 document: stream,
                 caption: "📖 Qur'oni Karim. Alouddin Mansur Tarjimasi ",
                 cancellationToken: cancellationToken);
-        } 
+        }
         else if (query.Data == "_arabBook")
         {
             var root = Directory.GetCurrentDirectory();
@@ -101,11 +100,13 @@ public partial class BotUpdateHandler
                 caption: "📖 Qur'oni Karim",
                 cancellationToken: cancellationToken);
         }
-          
+
     }
 
     private async Task HandleAlphabetAsync(ITelegramBotClient botClient, CallbackQuery query, CancellationToken cancellationToken)
     {
+        _sectionName = query.Data;
+        _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
         //code here
         throw new NotImplementedException();
     }
