@@ -63,21 +63,10 @@ public partial class BotUpdateHandler
             photo: "https://raw.githubusercontent.com/Nuriddin321/imgs/main/Screenshot%20from%202022-07-17%2016-34-50.jpg",
             cancellationToken: cancellationToken);
 
-        // await botClient.ForwardMessageAsync(
-        //     chatId: message.Chat.Id,
-        //     fromChatId: -1001679802094,
-        //     37,
-        //     cancellationToken: cancellationToken);
-
         await botClient.SendTextMessageAsync(
             message.Chat.Id,
-            text: $"🎉 \t\t\t\t\t\t\t\t\t\t {message.From?.FirstName ?? "👻"} \t\t\t\t\t\t\t\t\t\t  🎉  \n\n Qur'on tingla botga xush kelibsiz \n",
-            cancellationToken: cancellationToken);
-
-
-        await botClient.SendTextMessageAsync(
-            message.Chat.Id,
-            text: "Bo'limni tanlang",
+            text: $"🎉 \t\t\t\t\t\t\t\t\t\t {message.From?.FirstName ?? "👻"} \t\t\t\t\t\t\t\t\t\t  🎉  \n\n" +
+                "📿 Qur'on tingla 🤖 botga  xush kelibsiz! \n\n🛒 Bo'limni tanlang 👀 👇", 
             replyMarkup: selectSection,
             cancellationToken: cancellationToken);
     }
