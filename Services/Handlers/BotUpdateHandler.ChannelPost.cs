@@ -1,5 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
-using SurahSender.Entities;
+ 
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
@@ -33,6 +32,8 @@ public partial class BotUpdateHandler
         if (result.IsSuccess)
         {
             _logger.LogInformation($"New Quran Video successfully added: {idOfMessage}, Name: {name}");
+            _logger.LogInformation($"canal id: {channelPost.Chat.Id}, Name: {name}");
+
         }
         else
         {
