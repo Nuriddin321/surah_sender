@@ -6,9 +6,10 @@ using Telegram.Bot.Types.Enums;
 namespace SurahSender.Services;
 public partial class BotUpdateHandler
 {
-    private async Task HandleMessageAsync(ITelegramBotClient botClient,
-                                          Message? message,
-                                          CancellationToken cancellationToken)
+    private async Task HandleMessageAsync(
+        ITelegramBotClient botClient,
+        Message? message,
+        CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(message);
 
@@ -38,7 +39,7 @@ public partial class BotUpdateHandler
                                               CancellationToken token)
     {
         var from = message.From;
-        
+
         _logger.LogInformation("From: {from.Firstname} : {message.Text} | Msg ID: {message.MessageId} | ChatID: {message.Chat.Id}", from?.FirstName, message.Text, message.MessageId, message.Chat.Id);
 
         var handler = message.Text switch
@@ -63,7 +64,7 @@ public partial class BotUpdateHandler
         await botClient.SendTextMessageAsync(
             message.Chat.Id,
             text: $"🎉 \t\t\t\t\t\t\t\t\t\t {message.From?.FirstName ?? "👻"} \t\t\t\t\t\t\t\t\t\t  🎉  \n\n" +
-                "📿 Qur'on tingla 🤖 botga  xush kelibsiz! \n\n🛒 Bo'limni tanlang 👀 👇", 
+                "📿 Qur'on tingla 🤖 botga  xush kelibsiz! \n\n🛒 Bo'limni tanlang 👀 👇",
             replyMarkup: selectSection,
             cancellationToken: cancellationToken);
     }

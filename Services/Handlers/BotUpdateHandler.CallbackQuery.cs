@@ -1,7 +1,8 @@
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using SurahSender.Services.MarcupHelper;
-using SurahSender.Data;
+
+
 namespace SurahSender.Services;
 public partial class BotUpdateHandler
 {
@@ -16,6 +17,8 @@ public partial class BotUpdateHandler
     {
         ArgumentNullException.ThrowIfNull(query);
 
+        var key = query.Data;
+
         _logger.LogInformation("Received CallbackQuery from {from.FirstName} : {query.Data}", query.From?.FirstName, query.Data);
 
         var queryValue = query.Data;
@@ -28,7 +31,7 @@ public partial class BotUpdateHandler
             "_videoQuran" => HandleVideoQuranAsync(botClient, query, cancellationToken),
             "_textQuran" or "_arabBook" or "_uzBook" => HandleTextQuranAsync(botClient, query, cancellationToken),
             "_alphabet" => HandleAlphabetAsync(botClient, query, cancellationToken),
-            "001" => HandleFotihaAsync(botClient, query, cancellationToken),
+            "Fotiha" => HandleFotihaAsync(botClient, query, cancellationToken, key),
             // _ =>  some code here
         };
 
@@ -37,8 +40,10 @@ public partial class BotUpdateHandler
 
     }
 
-    private async Task HandleFotihaAsync(ITelegramBotClient botClient, CallbackQuery query, CancellationToken cancellationToken)
-    {
+    private async Task HandleFotihaAsync(ITelegramBotClient botClient, CallbackQuery query, CancellationToken cancellationToken, string key)
+    {  
+        var item = _context.Qurans.First(q => q.Name == key);
+        var idOfMessage = item.IdOfMessage;
 
         await botClient.SendTextMessageAsync(
             query.Message.Chat.Id,
@@ -48,7 +53,7 @@ public partial class BotUpdateHandler
         await botClient.ForwardMessageAsync(
             chatId: query.Message.Chat.Id,
             fromChatId: -1001679802094,
-            96,
+            (int)item.IdOfMessage,
             cancellationToken: cancellationToken);
 
     }
@@ -76,7 +81,7 @@ public partial class BotUpdateHandler
          replyMarkup: MarcupHelpers.GetKeyboardMarkup(
             new Dictionary<string, string>
             {
-                {"Fotiha", "001"},
+                {"Fotiha", "Fotiha"},
                 {"Nas", "002"},
                 {"Ift", "003"},
                 {"Fotiha1", "004"},
