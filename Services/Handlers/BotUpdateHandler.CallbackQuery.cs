@@ -51,10 +51,10 @@ public partial class BotUpdateHandler
                                       CallbackQuery query,
                                       CancellationToken cancellationToken)
     {
-        // await botClient.SendTextMessageAsync(
-        //     query.Message.Chat.Id,
-        //     text: "Qaysi qorining qiroatini tinglamoqchisiz?",
-        //     replyMarkup: reciters,
+       // await botClient.ForwardMessageAsync(
+        //     chatId: message.Chat.Id,
+        //     fromChatId: -1001679802094,
+        //     37,
         //     cancellationToken: cancellationToken);
     }
 
