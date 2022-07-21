@@ -36,37 +36,31 @@ public partial class BotUpdateHandler
 
     private async Task HandleTextMessageAsync(ITelegramBotClient botClient,
                                               Message message,
-                                              CancellationToken token)
+                                              CancellationToken cancellationToken)
     {
-        var from = message.From;
-
-        _logger.LogInformation("From: {from.Firstname} : {message.Text} | Msg ID: {message.MessageId} | ChatID: {message.Chat.Id}", from?.FirstName, message.Text, message.MessageId, message.Chat.Id);
-
-        var handler = message.Text switch
+        _logger.LogInformation("From: {from.Firstname} : {message.Text}   ", message.From?.FirstName, message.Text);
+  
+        if (message.Text == "/start")
         {
-            "/start" => HandleStartAsync(botClient, message, token),
-            _ => Task.CompletedTask
-        };
+            await botClient.SendPhotoAsync(
+                message.Chat.Id,
+                photo: "https://raw.githubusercontent.com/Nuriddin321/imgs/main/Screenshot%20from%202022-07-17%2016-34-50.jpg",
+                cancellationToken: cancellationToken);
 
-        await handler;
-    }
-
-    private async Task HandleStartAsync(ITelegramBotClient botClient,
-                                        Message message,
-                                        CancellationToken cancellationToken)
-    {
-
-        await botClient.SendPhotoAsync(
-            message.Chat.Id,
-            photo: "https://raw.githubusercontent.com/Nuriddin321/imgs/main/Screenshot%20from%202022-07-17%2016-34-50.jpg",
-            cancellationToken: cancellationToken);
-
-        await botClient.SendTextMessageAsync(
-            message.Chat.Id,
-            text: $"🎉 \t\t\t\t\t\t\t\t\t\t {message.From?.FirstName ?? "👻"} \t\t\t\t\t\t\t\t\t\t  🎉  \n\n" +
-                "📿 Qur'on tingla 🤖 botga  xush kelibsiz! \n\n🛒 Bo'limni tanlang 👀 👇",
-            replyMarkup: selectSection,
-            cancellationToken: cancellationToken);
+            await botClient.SendTextMessageAsync(
+                message.Chat.Id,
+                text: $"☪️ \t\t\t\t\t\t\t\t\t\t {message.From?.FirstName ?? "👻"} \t\t\t\t\t\t\t\t\t\t  ☪️   \n\n" +
+                    "📿 Qur'on tingla botga  xush kelibsiz! \n\n🛒 Bo'limni tanlang  👇",
+                replyMarkup: selectSection,
+                cancellationToken: cancellationToken);
+        }
+        else
+        {
+            await botClient.SendTextMessageAsync(
+                message.Chat.Id,
+                text: "Iltimos, yuqorida ko'rsatilgan tugmalardan birini bosing",
+                cancellationToken: cancellationToken);
+        }
     }
 }
 
