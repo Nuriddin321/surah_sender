@@ -32,6 +32,7 @@ public partial class BotUpdateHandler
         _logger.LogInformation("Received message type {message.Type}", message.Type);
 
         return Task.CompletedTask;
+        
     }
 
     private async Task HandleTextMessageAsync(ITelegramBotClient botClient,
