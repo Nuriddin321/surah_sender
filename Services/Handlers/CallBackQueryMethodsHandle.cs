@@ -62,34 +62,18 @@ public partial class BotUpdateHandler
         }
         else if (query.Data == "_uzBook")
         {
-            // change here / add book to database
-            var root = Directory.GetCurrentDirectory();
-            var filePath = Path.Combine(root, "quroni-karim-alouddin-mansur.pdf");
-
-            var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
-
-            using var stream = new MemoryStream(bytes);
-
-            await botClient.SendDocumentAsync(
-                query.Message.Chat.Id,
-                document: stream,
-                caption: "📖 Qur'oni Karim. Alouddin Mansur Tarjimasi ",
+            await botClient.ForwardMessageAsync(
+                chatId: query.Message.Chat.Id,
+                fromChatId: -1001407276572,
+                226,
                 cancellationToken: cancellationToken);
         }
         else if (query.Data == "_arabBook")
         {
-            // change here / add book to database
-            var root = Directory.GetCurrentDirectory();
-            var filePath = Path.Combine(root, "Quran.pdf");
-
-            var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
-
-            using var stream = new MemoryStream(bytes);
-
-            await botClient.SendDocumentAsync(
-                query.Message.Chat.Id,
-                document: stream,
-                caption: "📖 Qur'oni Karim",
+            await botClient.ForwardMessageAsync(
+                chatId: query.Message.Chat.Id,
+                fromChatId: -1001407276572,
+                227,
                 cancellationToken: cancellationToken);
         }
     }
@@ -124,7 +108,6 @@ public partial class BotUpdateHandler
                 text: aboutProphet1,
                 replyMarkup: buttonsOfProphet1,
                 cancellationToken: cancellationToken);
-
         }
         else if (query.Data == "_nextButtonOfProphet1")
         {
@@ -150,8 +133,6 @@ public partial class BotUpdateHandler
                replyMarkup: buttonsOfProphet4,
                cancellationToken: cancellationToken);
         }
-
-
     }
 
     private async Task HandleViewOfSurahsync(ITelegramBotClient botClient,
@@ -233,7 +214,7 @@ public partial class BotUpdateHandler
             {
                 if (_reciterName == "_reciters1")
                 {
-                    int surahId = _surahNumber; // + id
+                    int surahId = _surahNumber + 230; // + id
                     await botClient.ForwardMessageAsync(
                        chatId: query.Message.Chat.Id,
                        fromChatId: -1001407276572,
@@ -259,13 +240,13 @@ public partial class BotUpdateHandler
             }
             else if (_sectionName == "_videoQuran")
             {
-                int surahId = _surahNumber; // + id
+                int surahId = _surahNumber + 110; // + id
 
                 await botClient.ForwardMessageAsync(
-                   chatId: query.Message.Chat.Id,
-                   fromChatId: -1001407276572,
-                   surahId,
-                   cancellationToken: cancellationToken);
+                    chatId: query.Message.Chat.Id,
+                    fromChatId: -1001407276572,
+                    surahId,
+                    cancellationToken: cancellationToken);
             }
             else if (_sectionName == "_alphabet")
             {
@@ -275,6 +256,7 @@ public partial class BotUpdateHandler
                     text: $"Bu bo'lim tez orada qo'shiladi.\nYuzaga kelgan noqulaylik uchun uzr😐 ",
                     cancellationToken: cancellationToken);
             }
+
         }
         else
         {
