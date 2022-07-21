@@ -60,13 +60,16 @@ public partial class BotUpdateHandler
             InlineKeyboardButton.WithCallbackData(text: "2", callbackData: "2"),
             InlineKeyboardButton.WithCallbackData(text: "3", callbackData: "3"),
             InlineKeyboardButton.WithCallbackData(text: "4", callbackData: "4"),
-            InlineKeyboardButton.WithCallbackData(text: "5", callbackData: "5"),
-            InlineKeyboardButton.WithCallbackData(text: "6", callbackData: "6"),
         },
         new []
         {
+            InlineKeyboardButton.WithCallbackData(text: "5", callbackData: "5"),
+            InlineKeyboardButton.WithCallbackData(text: "6", callbackData: "6"),
             InlineKeyboardButton.WithCallbackData(text: "7", callbackData: "7"),
             InlineKeyboardButton.WithCallbackData(text: "8", callbackData: "8"),
+        },
+        new []
+        {
             InlineKeyboardButton.WithCallbackData(text: "9", callbackData: "9"),
             InlineKeyboardButton.WithCallbackData(text: "10", callbackData: "10"),
             InlineKeyboardButton.WithCallbackData(text: "11", callbackData: "11"),
@@ -78,13 +81,25 @@ public partial class BotUpdateHandler
             InlineKeyboardButton.WithCallbackData(text: "14", callbackData: "14"),
             InlineKeyboardButton.WithCallbackData(text: "15", callbackData: "15"),
             InlineKeyboardButton.WithCallbackData(text: "16", callbackData: "16"),
-            InlineKeyboardButton.WithCallbackData(text: "17", callbackData: "17"),
-            InlineKeyboardButton.WithCallbackData(text: "18", callbackData: "18"),
         },
         new []
         {
+            InlineKeyboardButton.WithCallbackData(text: "Keyingisi", callbackData: "_nextButtonOfProphet1"),
+        },
+    });
+
+    InlineKeyboardMarkup buttonsOfProphet2 = new(new[]
+   {
+
+        new []
+        {
+            InlineKeyboardButton.WithCallbackData(text: "17", callbackData: "17"),
+            InlineKeyboardButton.WithCallbackData(text: "18", callbackData: "18"),
             InlineKeyboardButton.WithCallbackData(text: "19", callbackData: "19"),
             InlineKeyboardButton.WithCallbackData(text: "20", callbackData: "20"),
+        },
+        new []
+        {
             InlineKeyboardButton.WithCallbackData(text: "21", callbackData: "21"),
             InlineKeyboardButton.WithCallbackData(text: "22", callbackData: "22"),
             InlineKeyboardButton.WithCallbackData(text: "23", callbackData: "23"),
@@ -96,21 +111,24 @@ public partial class BotUpdateHandler
             InlineKeyboardButton.WithCallbackData(text: "26", callbackData: "26"),
             InlineKeyboardButton.WithCallbackData(text: "27", callbackData: "27"),
             InlineKeyboardButton.WithCallbackData(text: "28", callbackData: "28"),
+        },
+        new []
+        {
             InlineKeyboardButton.WithCallbackData(text: "29", callbackData: "29"),
             InlineKeyboardButton.WithCallbackData(text: "30", callbackData: "30"),
-        },
-        new []
-        {
-            InlineKeyboardButton.WithCallbackData(text: "Keyingisi", callbackData: "_nextButtonOfProphet"),
-        },
-    });
-
-    InlineKeyboardMarkup buttonsOfProphet2 = new(new[]
-   {
-        new []
-        {
             InlineKeyboardButton.WithCallbackData(text: "31", callbackData: "31"),
             InlineKeyboardButton.WithCallbackData(text: "32", callbackData: "32"),
+        },
+        new []
+        {
+            InlineKeyboardButton.WithCallbackData(text: "Keyingisi", callbackData: "_nextButtonOfProphet2"),
+        },
+   });
+
+    InlineKeyboardMarkup buttonsOfProphet3 = new(new[]
+    {
+        new []
+        {
             InlineKeyboardButton.WithCallbackData(text: "33", callbackData: "33"),
             InlineKeyboardButton.WithCallbackData(text: "34", callbackData: "34"),
             InlineKeyboardButton.WithCallbackData(text: "35", callbackData: "35"),
@@ -122,13 +140,16 @@ public partial class BotUpdateHandler
             InlineKeyboardButton.WithCallbackData(text: "38", callbackData: "38"),
             InlineKeyboardButton.WithCallbackData(text: "39", callbackData: "39"),
             InlineKeyboardButton.WithCallbackData(text: "40", callbackData: "40"),
-            InlineKeyboardButton.WithCallbackData(text: "41", callbackData: "41"),
-            InlineKeyboardButton.WithCallbackData(text: "42", callbackData: "42"),
         },
         new []
         {
+            InlineKeyboardButton.WithCallbackData(text: "41", callbackData: "41"),
+            InlineKeyboardButton.WithCallbackData(text: "42", callbackData: "42"),
             InlineKeyboardButton.WithCallbackData(text: "43", callbackData: "43"),
             InlineKeyboardButton.WithCallbackData(text: "44", callbackData: "44"),
+        },
+        new []
+        {
             InlineKeyboardButton.WithCallbackData(text: "45", callbackData: "45"),
             InlineKeyboardButton.WithCallbackData(text: "46", callbackData: "46"),
             InlineKeyboardButton.WithCallbackData(text: "47", callbackData: "47"),
@@ -136,17 +157,31 @@ public partial class BotUpdateHandler
         },
         new []
         {
+            InlineKeyboardButton.WithCallbackData(text: "Keyingisi", callbackData: "_nextButtonOfProphet3"),
+        },
+
+    });
+
+    InlineKeyboardMarkup buttonsOfProphet4 = new(new[]
+   {
+
+        new []
+        {
             InlineKeyboardButton.WithCallbackData(text: "49", callbackData: "49"),
             InlineKeyboardButton.WithCallbackData(text: "50", callbackData: "50"),
             InlineKeyboardButton.WithCallbackData(text: "51", callbackData: "51"),
             InlineKeyboardButton.WithCallbackData(text: "52", callbackData: "52"),
-            InlineKeyboardButton.WithCallbackData(text: "53", callbackData: "53"),
-            InlineKeyboardButton.WithCallbackData(text: "54", callbackData: "54"),
         },
         new []
         {
+            
+            InlineKeyboardButton.WithCallbackData(text: "53", callbackData: "53"),
+            InlineKeyboardButton.WithCallbackData(text: "54", callbackData: "54"),
             InlineKeyboardButton.WithCallbackData(text: "55", callbackData: "55"),
             InlineKeyboardButton.WithCallbackData(text: "56", callbackData: "56"),
+        },
+        new []
+        {
             InlineKeyboardButton.WithCallbackData(text: "57", callbackData: "57"),
             InlineKeyboardButton.WithCallbackData(text: "58", callbackData: "58"),
             InlineKeyboardButton.WithCallbackData(text: "59", callbackData: "59"),
@@ -339,6 +374,78 @@ public partial class BotUpdateHandler
         },
 
     });
+
+    string aboutProphet1 = @"
+1. Siyratning fazilati
+2. Amr ibn Luhay
+3. As'hob ul Uhdud
+4. Fil voqeasi
+5. Yamanga forslarini kelishi
+6. Zam-zam va Muhammad Sallollohu Alayhi vasallamning 
+   tug'ilishi
+7. Enaga Halima
+8. Shom safari va to'y
+9. Ka'ba ta'miri
+10. Vahiyning boshlanishi
+11. Avvalgi musulmonlar
+12. Hamza RoziAllohu anhuning Islomga kirishi
+13. Mo'jiza talabi; aziyatlar
+14. Umar RoziAllohu anhuning islomga kirishi
+15. Iqtisodiy qamal ostida
+16. Toifga safar";
+
+    string aboutProphet2 = @"
+17. Nusaybin Jinlari Islomda
+18. Najjoshiy xuzurida
+19. Isro va Meroj
+20. Mo'jizalar
+21. Aqoba baytlari
+22. Rosululloh Sallollohu Alayhi vasallam xijrati
+23. Madinaga kirish
+24. Abdulloh ibn Sallam
+25. Badr g'azoti - 1
+26. Badr g'azoti - 2
+27. Badr g'azoti - 3
+28. Badr g'azoti - 4
+29. Uhud g'azoti - 1
+30. Uhud g'azoti - 2
+31. Uhud g'azoti - 3
+32. Uhud g'azoti - 4";
+
+    string aboutProphet3 = @"
+33. Banu Nazir g'azoti
+34. Xandaq jangi - 1
+35. Xandaq janggi - 2
+36. Banu Qurayza g'azoti
+37. Sumoma ibn Usol islomda
+38. Banu Mustaliq g'azoti
+39. Hadiys-ul ifk
+40. Xudaybiya sulhi - 1
+41. Xudaybiya sulhi - 2
+42. Xaybar g'azoti - 1
+43. Xaybar g'azoti - 2
+44. Xaybar g'azoti - 3
+45. Xaybar g'azoti - 4
+46. Qazo umrasi; Xirakl va Abu sufyon suxbati
+47. Mu'ta g'azoti
+48. Zaat us-salosi sariyasi";
+    string aboutProphet4 = @"
+49. Makka fathi - 1
+50. Makka fathi - 2
+51. Makka fathi - 3
+52. Hunayn g'azoti
+53. G'animalarni tarqatish
+54. Toif islomda, Tabuk safari
+55. Tabuk safari
+56. Tabukdan qaytish
+57. Ka'b ibn Molik
+58. Musaylama kazzob
+59. Adiy ibn Holim va Najron vafoti
+60. Vidolashuv Hajji
+61. Vidolashuv hutbasi
+62. Payg'ambarimiz Sallollohu Alayhi Vasallam vafoti
+63.Payg'ambarimiz Sallollohu Alayhi Vasallamning dafn qilinishi
+";
 
 }
 

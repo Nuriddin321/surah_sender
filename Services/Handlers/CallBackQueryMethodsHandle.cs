@@ -108,7 +108,6 @@ public partial class BotUpdateHandler
                                           CallbackQuery query,
                                           CancellationToken cancellationToken)
     {
-
         if (query.Data == "_prophet")
         {
             _sectionName = query.Data;
@@ -118,17 +117,40 @@ public partial class BotUpdateHandler
                 query.Message.Chat.Id,
                 text: "Bu bo'limda siz payg'ambarimiz Muhammad Mustafo Sallallohu alayhi vasallam " +
                 "hayotlari haqida to'liq malumotga ega bo'lasiz \nin sha Alloh",
+                cancellationToken: cancellationToken);
+
+            await botClient.SendTextMessageAsync(
+                query.Message.Chat.Id,
+                text: aboutProphet1,
                 replyMarkup: buttonsOfProphet1,
                 cancellationToken: cancellationToken);
+
         }
-        else if (query.Data == "_nextButtonOfProphet")
+        else if (query.Data == "_nextButtonOfProphet1")
         {
             await botClient.SendTextMessageAsync(
                query.Message.Chat.Id,
-               text: "",
+               text: aboutProphet2,
                replyMarkup: buttonsOfProphet2,
                cancellationToken: cancellationToken);
         }
+        else if (query.Data == "_nextButtonOfProphet2")
+        {
+            await botClient.SendTextMessageAsync(
+               query.Message.Chat.Id,
+               text: aboutProphet3,
+               replyMarkup: buttonsOfProphet3,
+               cancellationToken: cancellationToken);
+        }
+        else if (query.Data == "_nextButtonOfProphet3")
+        {
+            await botClient.SendTextMessageAsync(
+               query.Message.Chat.Id,
+               text: aboutProphet4,
+               replyMarkup: buttonsOfProphet4,
+               cancellationToken: cancellationToken);
+        }
+
 
     }
 
