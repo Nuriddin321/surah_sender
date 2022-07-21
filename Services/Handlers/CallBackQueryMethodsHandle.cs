@@ -108,12 +108,28 @@ public partial class BotUpdateHandler
                                           CallbackQuery query,
                                           CancellationToken cancellationToken)
     {
-        await botClient.SendTextMessageAsync(
-           query.Message.Chat.Id,
-           text: "Bu bo'limda siz payg'ambarimiz Muhammad Mustafo Sallallohu alayhi vasallam "+
-           "hayotlari haqida to'liq malumotga ega bo'lasiz \nin sha Alloh",
-        //    replyMarkup: buttonsOfSurah1,
-           cancellationToken: cancellationToken);
+
+        if (query.Data == "_prophet")
+        {
+            _sectionName = query.Data;
+            _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
+
+            await botClient.SendTextMessageAsync(
+                query.Message.Chat.Id,
+                text: "Bu bo'limda siz payg'ambarimiz Muhammad Mustafo Sallallohu alayhi vasallam " +
+                "hayotlari haqida to'liq malumotga ega bo'lasiz \nin sha Alloh",
+                replyMarkup: buttonsOfProphet1,
+                cancellationToken: cancellationToken);
+        }
+        else if (query.Data == "_nextButtonOfProphet")
+        {
+            await botClient.SendTextMessageAsync(
+               query.Message.Chat.Id,
+               text: "",
+               replyMarkup: buttonsOfProphet2,
+               cancellationToken: cancellationToken);
+        }
+
     }
 
     private async Task HandleViewOfSurahsync(ITelegramBotClient botClient,

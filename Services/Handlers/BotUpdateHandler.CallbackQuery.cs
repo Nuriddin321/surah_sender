@@ -24,7 +24,7 @@ public partial class BotUpdateHandler
             "_videoQuran" => HandleVideoQuranAsync(botClient, query, cancellationToken),
             "_textQuran" or "_arabBook" or "_uzBook" => HandleTextQuranAsync(botClient, query, cancellationToken),
             "_alphabet" => HandleAlphabetAsync(botClient, query, cancellationToken),
-            "_prophet" => HandleProphetAsync(botClient, query, cancellationToken),
+            "_prophet" or "_nextButtonOfProphet" => HandleProphetAsync(botClient, query, cancellationToken),
             "_next1" or "_next2" => HandleViewOfSurahsync(botClient, query, cancellationToken),
             "_reciters1" or "_reciters2" or "_reciters3" => HandleRecitersAsync(botClient, query, cancellationToken),
             _ => HandleSurahNumberAsync(botClient, query, cancellationToken)
