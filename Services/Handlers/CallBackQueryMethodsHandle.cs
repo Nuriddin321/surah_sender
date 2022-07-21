@@ -221,7 +221,6 @@ public partial class BotUpdateHandler
         else
         {
             _logger.LogInformation("buttonVlaue is {queryValue}", query.Data);
-
         }
 
     }
