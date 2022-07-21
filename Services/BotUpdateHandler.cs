@@ -1,4 +1,5 @@
- 
+
+using SurahSender.Data;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
@@ -10,11 +11,16 @@ public partial class BotUpdateHandler : IUpdateHandler
 {
     private readonly ILogger<BotUpdateHandler> _logger;
     private readonly IServiceScopeFactory _scopeFactory;
+    private readonly AppDbContext _context;
 
-    public BotUpdateHandler(ILogger<BotUpdateHandler> logger, IServiceScopeFactory scopeFactory)
+    public BotUpdateHandler(
+        ILogger<BotUpdateHandler> logger, 
+        IServiceScopeFactory scopeFactory,
+        AppDbContext context)
     {
         _logger = logger;
         _scopeFactory = scopeFactory;
+        _context =context;
     }
     public Task HandlePollingErrorAsync(ITelegramBotClient botClient,
                                         Exception exception,

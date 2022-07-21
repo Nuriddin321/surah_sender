@@ -6,10 +6,7 @@ public partial class BotUpdateHandler
     private string _reciterName = "default";
     private string _sectionName = "default";
     private int _surahNumber = 0;
-
-    // private QuranService _scopSelect;
-    // private int surah;
-
+ 
     private async Task HandleAudioQuranAsync(ITelegramBotClient botClient,
                                        CallbackQuery query,
                                        CancellationToken cancellationToken)
@@ -56,7 +53,7 @@ public partial class BotUpdateHandler
                                       CancellationToken cancellationToken)
     {
         if (query.Data == "_textQuran")
-        {
+        {   
             await botClient.SendTextMessageAsync(
                 query.Message.Chat.Id,
                 text: "Qaysi tilda o'qimoqchisiz?",
@@ -65,6 +62,7 @@ public partial class BotUpdateHandler
         }
         else if (query.Data == "_uzBook")
         {
+            // change here / add book to database
             var root = Directory.GetCurrentDirectory();
             var filePath = Path.Combine(root, "quroni-karim-alouddin-mansur.pdf");
 
@@ -79,7 +77,8 @@ public partial class BotUpdateHandler
                 cancellationToken: cancellationToken);
         }
         else if (query.Data == "_arabBook")
-        {
+        {   
+            // change here / add book to database
             var root = Directory.GetCurrentDirectory();
             var filePath = Path.Combine(root, "Quran.pdf");
 
@@ -93,7 +92,6 @@ public partial class BotUpdateHandler
                 caption: "📖 Qur'oni Karim",
                 cancellationToken: cancellationToken);
         }
-
     }
 
     private async Task HandleAlphabetAsync(ITelegramBotClient botClient, CallbackQuery query, CancellationToken cancellationToken)

@@ -12,7 +12,14 @@ public class QuranService
     {
         _context = context;
     }
+    public async Task<Quran?> GetQuranAsync(long? Id)
+    {
+        ArgumentNullException.ThrowIfNull(Id);
 
+        var quran = await _context.Qurans.FindAsync(Id);
+
+        return quran;
+    }
     public async Task<(bool IsSuccess, string? ErrorMessage)> AddDataAsync(Quran quran)
     {
         if (await Exists(quran.IdOfMessage))
