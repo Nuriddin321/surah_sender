@@ -444,8 +444,9 @@ public partial class BotUpdateHandler
 60. Vidolashuv Hajji
 61. Vidolashuv hutbasi
 62. Payg'ambarimiz Sallollohu Alayhi Vasallam vafoti
-63.Payg'ambarimiz Sallollohu Alayhi Vasallamning dafn qilinishi
-";
+63.Payg'ambarimiz Sallollohu Alayhi Vasallamning dafn qilinishi";
+
+    string alphabetText1 = @"Bu yerda darslar raqam holatda berilgan , quyidagilardan birini tanlang👇";
 
 }
 
