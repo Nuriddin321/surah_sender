@@ -84,8 +84,7 @@ public partial class BotUpdateHandler
     {
         _sectionName = query.Data;
         _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
-        //code here
-        throw new NotImplementedException();
+         
     }
 
     private async Task HandleProphetAsync(ITelegramBotClient botClient,
@@ -254,6 +253,16 @@ public partial class BotUpdateHandler
                 await botClient.SendTextMessageAsync(
                     query.Message.Chat.Id,
                     text: $"Bu bo'lim tez orada qo'shiladi.\nYuzaga kelgan noqulaylik uchun uzr😐 ",
+                    cancellationToken: cancellationToken);
+            }
+            else if (_sectionName == "_prophet")
+            {
+                int surahId = _surahNumber + 350 ; // + id
+
+                await botClient.ForwardMessageAsync(
+                    chatId: query.Message.Chat.Id,
+                    fromChatId: -1001407276572,
+                    surahId,
                     cancellationToken: cancellationToken);
             }
 
