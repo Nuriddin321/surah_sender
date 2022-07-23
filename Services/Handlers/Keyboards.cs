@@ -387,6 +387,7 @@ public partial class BotUpdateHandler
     });
 
     string aboutProphet1 = @"
+Darslar ro'yxati 👇
 1. Siyratning fazilati
 2. Amr ibn Luhay
 3. As'hob ul Uhdud
@@ -406,6 +407,7 @@ public partial class BotUpdateHandler
 16. Toifga safar";
 
     string aboutProphet2 = @"
+Darslar ro'yxati 👇
 17. Nusaybin Jinlari Islomda
 18. Najjoshiy xuzurida
 19. Isro va Meroj
@@ -424,6 +426,7 @@ public partial class BotUpdateHandler
 32. Uhud g'azoti - 4";
 
     string aboutProphet3 = @"
+Darslar ro'yxati 👇
 33. Banu Nazir g'azoti
 34. Xandaq jangi - 1
 35. Xandaq janggi - 2
@@ -441,6 +444,7 @@ public partial class BotUpdateHandler
 47. Mu'ta g'azoti
 48. Zaat us-salosi sariyasi";
     string aboutProphet4 = @"
+Darslar ro'yxati 👇
 49. Makka fathi - 1
 50. Makka fathi - 2
 51. Makka fathi - 3

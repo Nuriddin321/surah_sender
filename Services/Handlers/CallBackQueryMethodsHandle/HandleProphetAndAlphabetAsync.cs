@@ -15,7 +15,7 @@ public partial class BotUpdateHandler
             await botClient.SendTextMessageAsync(
                 query.Message.Chat.Id,
                 text: "Bu bo'limda siz payg'ambarimiz Muhammad Mustafo Sallallohu alayhi vasallam " +
-                "hayotlari haqida to'liq malumotga ega bo'lasiz \nin sha Alloh \nDarslar ro'yxati 👇",
+                "hayotlari haqida to'liq malumotga ega bo'lasiz \nin sha Alloh \n",
                 cancellationToken: cancellationToken);
 
             await botClient.SendTextMessageAsync(
