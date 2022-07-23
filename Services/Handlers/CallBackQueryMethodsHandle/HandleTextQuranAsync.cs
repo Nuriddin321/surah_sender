@@ -16,7 +16,7 @@ public partial class BotUpdateHandler
                 query.Message.Chat.Id,
                 text: "Qaysi tilda o'qimoqchisiz?",
                 replyMarkup: books,
-                cancellationToken: cancellationToken);
+                cancellationToken: cancellationToken); 
         }
         else if (query.Data == "_uzBook")
         {

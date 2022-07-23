@@ -52,7 +52,7 @@ public partial class BotUpdateHandler
         },
     });
 
-    InlineKeyboardMarkup buttonsOfProphet1 = new(new[]
+    InlineKeyboardMarkup Lesson1 = new(new[]
     {
         new []
         {
@@ -84,11 +84,11 @@ public partial class BotUpdateHandler
         },
         new []
         {
-            InlineKeyboardButton.WithCallbackData(text: "Keyingisi", callbackData: "_nextButtonOfProphet1"),
+            InlineKeyboardButton.WithCallbackData(text: "Keyingisi ➡️", callbackData: "_nextLesson1"),
         },
     });
 
-    InlineKeyboardMarkup buttonsOfProphet2 = new(new[]
+    InlineKeyboardMarkup Lesson2 = new(new[]
    {
 
         new []
@@ -121,11 +121,12 @@ public partial class BotUpdateHandler
         },
         new []
         {
-            InlineKeyboardButton.WithCallbackData(text: "Keyingisi", callbackData: "_nextButtonOfProphet2"),
+            InlineKeyboardButton.WithCallbackData(text: "⬅️ Orqaga", callbackData: "_backLesson1"),
+            InlineKeyboardButton.WithCallbackData(text: "Keyingisi ➡️", callbackData: "_nextLesson2"),
         },
    });
 
-    InlineKeyboardMarkup buttonsOfProphet3 = new(new[]
+    InlineKeyboardMarkup Lesson3 = new(new[]
     {
         new []
         {
@@ -156,13 +157,14 @@ public partial class BotUpdateHandler
             InlineKeyboardButton.WithCallbackData(text: "48", callbackData: "48")
         },
         new []
-        {
-            InlineKeyboardButton.WithCallbackData(text: "Keyingisi", callbackData: "_nextButtonOfProphet3"),
+        {   
+            InlineKeyboardButton.WithCallbackData(text: "⬅️ Orqaga", callbackData: "_backLesson2"),
+            InlineKeyboardButton.WithCallbackData(text: "Keyingisi ➡️", callbackData: "_nextLesson3"),
         },
 
     });
 
-    InlineKeyboardMarkup buttonsOfProphet4 = new(new[]
+    InlineKeyboardMarkup Lesson4 = new(new[]
    {
 
         new []
@@ -192,6 +194,10 @@ public partial class BotUpdateHandler
             InlineKeyboardButton.WithCallbackData(text: "61", callbackData: "61"),
             InlineKeyboardButton.WithCallbackData(text: "62", callbackData: "62"),
             InlineKeyboardButton.WithCallbackData(text: "63", callbackData: "63"),
+        },
+          new []
+        {
+            InlineKeyboardButton.WithCallbackData(text: "⬅️ Orqaga", callbackData: "_backLesson3"),
         },
 
     });
@@ -255,7 +261,7 @@ public partial class BotUpdateHandler
         },
         new []
         {
-            InlineKeyboardButton.WithCallbackData(text: "Keyingisi", callbackData: "_next1"),
+            InlineKeyboardButton.WithCallbackData(text: "Keyingisi ➡️", callbackData: "_next1"),
         },
     });
     InlineKeyboardMarkup buttonsOfSurah2 = new(new[]
@@ -317,10 +323,11 @@ public partial class BotUpdateHandler
         },
         new []
         {
-            InlineKeyboardButton.WithCallbackData(text: "Keyingisi", callbackData: "_next2"),
+            InlineKeyboardButton.WithCallbackData(text: "⬅️ Orqaga", callbackData: "_back1"),
+            InlineKeyboardButton.WithCallbackData(text: "Keyingisi ➡️", callbackData: "_next2"),
         },
     });
-
+ 
     InlineKeyboardMarkup buttonsOfSurah3 = new(new[]
 {
         new []
@@ -371,6 +378,10 @@ public partial class BotUpdateHandler
         {
             InlineKeyboardButton.WithCallbackData(text: "113", callbackData: "113"),
             InlineKeyboardButton.WithCallbackData(text: "114", callbackData: "114"),
+        },
+        new []
+        {
+            InlineKeyboardButton.WithCallbackData(text: "⬅️ Orqaga", callbackData: "_back2"),
         },
 
     });
@@ -449,5 +460,3 @@ public partial class BotUpdateHandler
     string alphabetText1 = @"Bu yerda darslar raqam holatda berilgan , quyidagilardan birini tanlang👇";
 
 }
-
-

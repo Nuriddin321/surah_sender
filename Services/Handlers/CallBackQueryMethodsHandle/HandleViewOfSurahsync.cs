@@ -3,7 +3,7 @@ using Telegram.Bot.Types;
 namespace SurahSender.Services;
 public partial class BotUpdateHandler
 {
-     private async Task HandleViewOfSurahsync(ITelegramBotClient botClient,
+    private async Task HandleViewOfSurahsync(ITelegramBotClient botClient,
                                              CallbackQuery query,
                                              CancellationToken cancellationToken)
     {
@@ -20,6 +20,11 @@ public partial class BotUpdateHandler
                 photo: stream,
                 replyMarkup: buttonsOfSurah2,
                 cancellationToken: cancellationToken);
+
+            await botClient.DeleteMessageAsync(
+                query.Message.Chat.Id,
+                query.Message.MessageId,
+                cancellationToken: cancellationToken);
         }
         else if (query.Data == "_next2")
         {
@@ -33,6 +38,49 @@ public partial class BotUpdateHandler
                 query.Message.Chat.Id,
                 photo: stream,
                 replyMarkup: buttonsOfSurah3,
+                cancellationToken: cancellationToken);
+            
+            await botClient.DeleteMessageAsync(
+                query.Message.Chat.Id,
+                query.Message.MessageId,
+                cancellationToken: cancellationToken);
+        }
+        else if (query.Data == "_back1")
+        {
+            var root = Directory.GetCurrentDirectory();
+            var filePath = Path.Combine(root, "img1-40.png");
+
+            var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
+
+            using var stream = new MemoryStream(bytes);
+            await botClient.SendPhotoAsync(
+                query.Message.Chat.Id,
+                photo: stream,
+                replyMarkup: buttonsOfSurah1,
+                cancellationToken: cancellationToken);
+            
+            await botClient.DeleteMessageAsync(
+                query.Message.Chat.Id,
+                query.Message.MessageId,
+                cancellationToken: cancellationToken);
+        }
+        else if (query.Data == "_back2")
+        {
+            var root = Directory.GetCurrentDirectory();
+            var filePath = Path.Combine(root, "img41-80.png");
+
+            var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
+
+            using var stream = new MemoryStream(bytes);
+            await botClient.SendPhotoAsync(
+                query.Message.Chat.Id,
+                photo: stream,
+                replyMarkup: buttonsOfSurah2,
+                cancellationToken: cancellationToken);
+            
+            await botClient.DeleteMessageAsync(
+                query.Message.Chat.Id,
+                query.Message.MessageId,
                 cancellationToken: cancellationToken);
         }
 
