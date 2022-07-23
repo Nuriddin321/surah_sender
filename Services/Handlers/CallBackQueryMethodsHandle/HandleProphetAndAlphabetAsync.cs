@@ -3,9 +3,9 @@ using Telegram.Bot.Types;
 namespace SurahSender.Services;
 public partial class BotUpdateHandler
 {
-  private async Task HandleProphetAndAlphabetAsync(ITelegramBotClient botClient,
-                                          CallbackQuery query,
-                                          CancellationToken cancellationToken)
+    private async Task HandleProphetAndAlphabetAsync(ITelegramBotClient botClient,
+                                            CallbackQuery query,
+                                            CancellationToken cancellationToken)
     {
         if (query.Data == "_prophet")
         {
@@ -15,38 +15,14 @@ public partial class BotUpdateHandler
             await botClient.SendTextMessageAsync(
                 query.Message.Chat.Id,
                 text: "Bu bo'limda siz payg'ambarimiz Muhammad Mustafo Sallallohu alayhi vasallam " +
-                "hayotlari haqida to'liq malumotga ega bo'lasiz \nin sha Alloh",
+                "hayotlari haqida to'liq malumotga ega bo'lasiz \nin sha Alloh \n",
                 cancellationToken: cancellationToken);
 
             await botClient.SendTextMessageAsync(
                 query.Message.Chat.Id,
                 text: aboutProphet1,
-                replyMarkup: buttonsOfProphet1,
+                replyMarkup: Lesson1,
                 cancellationToken: cancellationToken);
-        }
-        else if (query.Data == "_nextButtonOfProphet1" && _sectionName == "_prophet")
-        {
-            await botClient.SendTextMessageAsync(
-               query.Message.Chat.Id,
-               text: aboutProphet2,
-               replyMarkup: buttonsOfProphet2,
-               cancellationToken: cancellationToken);
-        }
-        else if (query.Data == "_nextButtonOfProphet2" && _sectionName == "_prophet")
-        {
-            await botClient.SendTextMessageAsync(
-               query.Message.Chat.Id,
-               text: aboutProphet3,
-               replyMarkup: buttonsOfProphet3,
-               cancellationToken: cancellationToken);
-        }
-        else if (query.Data == "_nextButtonOfProphet3" && _sectionName == "_prophet")
-        {
-            await botClient.SendTextMessageAsync(
-               query.Message.Chat.Id,
-               text: aboutProphet4,
-               replyMarkup: buttonsOfProphet4,
-               cancellationToken: cancellationToken);
         }
 
         else if (query.Data == "_alphabet")
@@ -64,32 +40,9 @@ public partial class BotUpdateHandler
             await botClient.SendTextMessageAsync(
                 query.Message.Chat.Id,
                 text: alphabetText1,
-                replyMarkup: buttonsOfProphet1,
+                replyMarkup: Lesson1,
                 cancellationToken: cancellationToken);
         }
-        else if (query.Data == "_nextButtonOfProphet1" && _sectionName == "_alphabet")
-        {
-            await botClient.SendTextMessageAsync(
-               query.Message.Chat.Id,
-               text: alphabetText1,
-               replyMarkup: buttonsOfProphet2,
-               cancellationToken: cancellationToken);
-        }
-        else if (query.Data == "_nextButtonOfProphet2" && _sectionName == "_alphabet")
-        {
-            await botClient.SendTextMessageAsync(
-               query.Message.Chat.Id,
-               text: alphabetText1,
-               replyMarkup: buttonsOfProphet3,
-               cancellationToken: cancellationToken);
-        }
-        else if (query.Data == "_nextButtonOfProphet3" && _sectionName == "_alphabet")
-        {
-            await botClient.SendTextMessageAsync(
-               query.Message.Chat.Id,
-               text: alphabetText1,
-               replyMarkup: buttonsOfProphet4,
-               cancellationToken: cancellationToken);
-        }
+
     }
 }

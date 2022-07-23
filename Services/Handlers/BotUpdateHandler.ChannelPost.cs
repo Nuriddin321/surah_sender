@@ -31,13 +31,11 @@ public partial class BotUpdateHandler
 
         if (result.IsSuccess)
         {
-            _logger.LogInformation($"New Quran Video successfully added: {idOfMessage}, Name: {name}");
-            _logger.LogInformation($"canal id: {channelPost.Chat.Id}, Name: {name}");
-
+            _logger.LogInformation($"New Data successfully added to database: {idOfMessage}, Name: {name}");
         }
         else
         {
-            _logger.LogInformation($"Quran video not added: {idOfMessage}, Error: {result.ErrorMessage}");
+            _logger.LogInformation($"Data not added: {idOfMessage}, Error: {result.ErrorMessage}");
         }
     }
 }
