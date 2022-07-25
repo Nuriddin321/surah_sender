@@ -43,10 +43,12 @@ public partial class BotUpdateHandler
 
         if (message.Text == "/start")
         {
-            await botClient.SendPhotoAsync(
-                message.Chat.Id,
-                photo: "https://raw.githubusercontent.com/Nuriddin321/imgs/main/Screenshot%20from%202022-07-17%2016-34-50.jpg",
+            await botClient.ForwardMessageAsync(
+                chatId: message.Chat.Id,
+                fromChatId: -1001407276572,
+                508,
                 cancellationToken: cancellationToken);
+
 
             await botClient.SendTextMessageAsync(
                 message.Chat.Id,
@@ -63,7 +65,7 @@ public partial class BotUpdateHandler
                text: $"🛒 Bo'limni tanlang  👇",
                replyMarkup: selectSection,
                cancellationToken: cancellationToken);
-            
+
             await botClient.DeleteMessageAsync(
                 message.Chat.Id,
                 message.MessageId,

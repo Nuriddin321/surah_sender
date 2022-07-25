@@ -11,21 +11,16 @@ public partial class BotUpdateHandler
         _logger.LogInformation("buttonVlaue is {queryValue}", query.Data);
 
         var root = Directory.GetCurrentDirectory();
-        var filePath = Path.Combine(root, "img1-40.png");
+        var filePath = Path.Combine(root, "Resources/img1-40.png");
 
         var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
 
         using var stream = new MemoryStream(bytes);
+        
         await botClient.SendPhotoAsync(
             query.Message.Chat.Id,
             photo: stream,
             replyMarkup: buttonsOfSurah1,
-            cancellationToken: cancellationToken);
-
-        await botClient.SendTextMessageAsync(
-            query.Message.Chat.Id,
-            text: "",
-            replyMarkup: buttonsOfSurah1,
-            cancellationToken: cancellationToken);
+            cancellationToken: cancellationToken); 
     }
 }

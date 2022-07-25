@@ -6,7 +6,7 @@ public partial class BotUpdateHandler
     private string _reciterName = "default";
     private string _sectionName = "default";
     private int _surahNumber = 0;
- 
+
     private async Task HandleSurahNumberAsync(ITelegramBotClient botClient,
                                               CallbackQuery query,
                                               CancellationToken cancellationToken)
@@ -25,15 +25,11 @@ public partial class BotUpdateHandler
             {
                 if (_reciterName == "_reciters1")
                 {
-                  await   SendDataToUser(botClient, query, 230, cancellationToken );
+                    await SendDataToUser(botClient, query, 230, cancellationToken);
                 }
                 else if (_reciterName == "_reciters2")
                 {
-                    //some code here
-                    await botClient.SendTextMessageAsync(
-                        query.Message.Chat.Id,
-                        text: $"Bu Qorining qiroati botga tez orada qo'shiladi.\nYuzaga kelgan noqulaylik uchun uzr😐 ",
-                        cancellationToken: cancellationToken);
+                     await SendDataToUser(botClient, query, 670, cancellationToken);
                 }
                 else if (_reciterName == "_reciters3")
                 {
@@ -46,15 +42,15 @@ public partial class BotUpdateHandler
             }
             else if (_sectionName == "_videoQuran")
             {
-                 await   SendDataToUser(botClient, query, 110, cancellationToken );
+                await SendDataToUser(botClient, query, 110, cancellationToken);
             }
             else if (_sectionName == "_alphabet")
             {
-                 await   SendDataToUser(botClient, query, 420, cancellationToken );
+                await SendDataToUser(botClient, query, 420, cancellationToken);
             }
             else if (_sectionName == "_prophet")
             {
-                 await   SendDataToUser(botClient, query, 350, cancellationToken );
+                await SendDataToUser(botClient, query, 600, cancellationToken);
             }
 
         }
@@ -70,7 +66,7 @@ public partial class BotUpdateHandler
                                       int id,
                                       CancellationToken cancellationToken)
     {
-        int surahId = _surahNumber + id; 
+        int surahId = _surahNumber + id;
 
         await botClient.ForwardMessageAsync(
             chatId: query.Message.Chat.Id,

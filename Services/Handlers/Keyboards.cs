@@ -31,12 +31,12 @@ public partial class BotUpdateHandler
         new []
         {
             InlineKeyboardButton.WithCallbackData(text: "👳🏻‍♂️  Mishary bin Rashid", callbackData: "_reciters1"),
-            InlineKeyboardButton.WithCallbackData(text: "👳🏻‍♂️  Saad Al Ghamdi", callbackData: "_reciters2"),
+            InlineKeyboardButton.WithCallbackData(text: "👳🏻‍♂️  Abdul Rahman Al Sudais ", callbackData: "_reciters2"),
         },
         // second row
         new []
         {
-            InlineKeyboardButton.WithCallbackData(text: "👳🏻‍♂️  Ahmad bin Ali Al-Ajmi.", callbackData: "_reciters3"),
+            InlineKeyboardButton.WithCallbackData(text: "👳🏻‍♂️  Saad Al Ghamdi", callbackData: "_reciters3"),
         },
     });
 
@@ -301,9 +301,9 @@ public partial class BotUpdateHandler
         },
         new []
         {
+            InlineKeyboardButton.WithCallbackData(text: "65", callbackData: "65"),
             InlineKeyboardButton.WithCallbackData(text: "66", callbackData: "66"),
             InlineKeyboardButton.WithCallbackData(text: "67", callbackData: "67"),
-            InlineKeyboardButton.WithCallbackData(text: "65", callbackData: "65"),
             InlineKeyboardButton.WithCallbackData(text: "68", callbackData: "68"),
             InlineKeyboardButton.WithCallbackData(text: "69", callbackData: "69"),
             InlineKeyboardButton.WithCallbackData(text: "70", callbackData: "70"),
