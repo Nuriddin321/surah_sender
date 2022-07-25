@@ -11,7 +11,7 @@ public partial class BotUpdateHandler
         _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
 
         var root = Directory.GetCurrentDirectory();
-        var filePath = Path.Combine(root, "img1-40.png");
+        var filePath = Path.Combine(root, "Resources/img1-40.png");
 
         var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
 

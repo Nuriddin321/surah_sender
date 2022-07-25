@@ -10,7 +10,7 @@ public partial class BotUpdateHandler
         if (query.Data == "_next1")
         {
             var root = Directory.GetCurrentDirectory();
-            var filePath = Path.Combine(root, "img41-80.png");
+            var filePath = Path.Combine(root, "Resources/img41-80.png");
 
             var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
 
@@ -29,7 +29,7 @@ public partial class BotUpdateHandler
         else if (query.Data == "_next2")
         {
             var root = Directory.GetCurrentDirectory();
-            var filePath = Path.Combine(root, "img81-114.png");
+            var filePath = Path.Combine(root, "Resources/img81-114.png");
 
             var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
 
@@ -48,7 +48,7 @@ public partial class BotUpdateHandler
         else if (query.Data == "_back1")
         {
             var root = Directory.GetCurrentDirectory();
-            var filePath = Path.Combine(root, "img1-40.png");
+            var filePath = Path.Combine(root, "Resources/img1-40.png");
 
             var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
 
@@ -67,7 +67,7 @@ public partial class BotUpdateHandler
         else if (query.Data == "_back2")
         {
             var root = Directory.GetCurrentDirectory();
-            var filePath = Path.Combine(root, "img41-80.png");
+            var filePath = Path.Combine(root, "Resources/img41-80.png");
 
             var bytes = await System.IO.File.ReadAllBytesAsync(filePath, cancellationToken);
 

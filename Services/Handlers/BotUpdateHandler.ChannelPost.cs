@@ -16,26 +16,26 @@ public partial class BotUpdateHandler
         
         _quranService = scope.ServiceProvider.GetRequiredService<QuranService>();
         
-        var idOfMessage = channelPost.MessageId;
+        var channelPostMessageId = channelPost.MessageId;
         var name = channelPost.Caption;
         var size = 1;
 
-        _logger.LogInformation("Id Of message {id}", idOfMessage);
+        _logger.LogInformation("Id Of message {id}", channelPostMessageId);
 
         var result = await _quranService.AddDataAsync(new Entities.Quran()
         {
-            IdOfMessage = idOfMessage,
+            IdOfMessage= channelPostMessageId,
             Name = name,
             Size = size
         });
 
         if (result.IsSuccess)
         {
-            _logger.LogInformation($"New Data successfully added to database: {idOfMessage}, Name: {name}");
+            _logger.LogInformation($"New Data successfully added to database: {channelPostMessageId}, Name: {channelPost.Type}");
         }
         else
         {
-            _logger.LogInformation($"Data not added: {idOfMessage}, Error: {result.ErrorMessage}");
+            _logger.LogInformation($"Data not added: {channelPostMessageId}, Error: {result.ErrorMessage}");
         }
     }
 }
