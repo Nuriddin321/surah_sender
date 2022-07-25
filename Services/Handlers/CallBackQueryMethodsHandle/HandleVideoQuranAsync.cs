@@ -20,13 +20,8 @@ public partial class BotUpdateHandler
         await botClient.SendPhotoAsync(
             query.Message.Chat.Id,
             photo: stream,
-            replyMarkup: buttonsOfSurah1,
+            replyMarkup: buttonsVideo1,
             cancellationToken: cancellationToken);
 
-        await botClient.SendTextMessageAsync(
-            query.Message.Chat.Id,
-            text: "",
-            replyMarkup: buttonsOfSurah1,
-            cancellationToken: cancellationToken);
     }
 }

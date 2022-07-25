@@ -3,7 +3,7 @@ using Telegram.Bot.Types;
 namespace SurahSender.Services;
 public partial class BotUpdateHandler
 {
-    private async Task HandleViewOfSurahsync(ITelegramBotClient botClient,
+    private async Task HandleViewOfAudioSurahsync(ITelegramBotClient botClient,
                                              CallbackQuery query,
                                              CancellationToken cancellationToken)
     {

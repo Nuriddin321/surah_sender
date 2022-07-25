@@ -1,18 +1,18 @@
 using Telegram.Bot;
 using Telegram.Bot.Types;
+ 
 namespace SurahSender.Services;
 public partial class BotUpdateHandler
 {
-  private async Task HandleNextAndBackLessons(ITelegramBotClient botClient,
-                                          CallbackQuery query,
-                                          CancellationToken cancellationToken)
-    {   
-        if (query.Data == "_nextLesson1")
+
+    private async Task HandleNextAndBackProphet(ITelegramBotClient botClient, CallbackQuery query, CancellationToken cancellationToken)
+    {
+        if (query.Data == "_nextProphet1")
         {
             await botClient.SendTextMessageAsync(
                query.Message.Chat.Id,
-               text: alphabetText1,
-               replyMarkup: Lesson2,
+               text: aboutProphet2,
+               replyMarkup: Prophet2,
                cancellationToken: cancellationToken);
 
             await botClient.DeleteMessageAsync(
@@ -20,12 +20,12 @@ public partial class BotUpdateHandler
                 query.Message.MessageId,
                 cancellationToken: cancellationToken);
         }
-        else if (query.Data == "_nextLesson2")
+        else if (query.Data == "_nextProphet2" )
         {
             await botClient.SendTextMessageAsync(
                query.Message.Chat.Id,
-               text: alphabetText1,
-               replyMarkup: Lesson3,
+               text: aboutProphet3,
+               replyMarkup: Prophet3,
                cancellationToken: cancellationToken);
 
             await botClient.DeleteMessageAsync(
@@ -33,12 +33,12 @@ public partial class BotUpdateHandler
                 query.Message.MessageId,
                 cancellationToken: cancellationToken);
         }
-        else if (query.Data == "_nextLesson3")
+        else if (query.Data == "_nextProphet3" )
         {
             await botClient.SendTextMessageAsync(
                query.Message.Chat.Id,
-               text: alphabetText1,
-               replyMarkup: Lesson4,
+               text: aboutProphet4,
+               replyMarkup: Prophet4,
                cancellationToken: cancellationToken);
 
             await botClient.DeleteMessageAsync(
@@ -46,12 +46,12 @@ public partial class BotUpdateHandler
                 query.Message.MessageId,
                 cancellationToken: cancellationToken);
         }
-        else if (query.Data == "_backLesson1")
+        else if (query.Data == "_backProphet1"  )
         {
             await botClient.SendTextMessageAsync(
                query.Message.Chat.Id,
-               text: alphabetText1,
-               replyMarkup: Lesson1,
+               text: aboutProphet1,
+               replyMarkup: Prophet1,
                cancellationToken: cancellationToken);
 
             await botClient.DeleteMessageAsync(
@@ -59,12 +59,12 @@ public partial class BotUpdateHandler
                 query.Message.MessageId,
                 cancellationToken: cancellationToken);
         }
-        else if (query.Data == "_backLesson2")
+        else if (query.Data == "_backProphet2" )
         {
             await botClient.SendTextMessageAsync(
                query.Message.Chat.Id,
-               text: alphabetText1,
-               replyMarkup: Lesson2,
+               text: aboutProphet2,
+               replyMarkup: Prophet2,
                cancellationToken: cancellationToken);
 
             await botClient.DeleteMessageAsync(
@@ -72,14 +72,14 @@ public partial class BotUpdateHandler
                 query.Message.MessageId,
                 cancellationToken: cancellationToken);
         }
-        else if (query.Data == "_backLesson3")
+        else if (query.Data == "_backProphet3")
         {
             await botClient.SendTextMessageAsync(
                query.Message.Chat.Id,
-               text: alphabetText1,
-               replyMarkup: Lesson3,
+               text: aboutProphet3,
+               replyMarkup: Prophet3,
                cancellationToken: cancellationToken);
-               
+
             await botClient.DeleteMessageAsync(
                 query.Message.Chat.Id,
                 query.Message.MessageId,
