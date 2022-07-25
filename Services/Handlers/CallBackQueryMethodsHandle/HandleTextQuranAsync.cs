@@ -3,9 +3,6 @@ using Telegram.Bot.Types;
 namespace SurahSender.Services;
 public partial class BotUpdateHandler
 {
-
-
-
     private async Task HandleTextQuranAsync(ITelegramBotClient botClient,
                                       CallbackQuery query,
                                       CancellationToken cancellationToken)

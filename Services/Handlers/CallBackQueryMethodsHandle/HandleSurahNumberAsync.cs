@@ -12,53 +12,50 @@ public partial class BotUpdateHandler
                                               CancellationToken cancellationToken)
     {
         _logger.LogInformation("_sectionName is {_sectionName}", _sectionName);
+        var text = query.Data.Substring(4, 5);
 
-        if (char.IsDigit(query.Data[0]))
+        if (text == "audio")
         {
-            _logger.LogInformation("SectionName is {sectionName}", _sectionName);
-            _logger.LogInformation("_reciterName is {reciter}", _reciterName);
+            if (_reciterName == "_reciters1")
+            {
+                var surahId = (int.Parse(query.Data.Substring(0, 3))) + 230;
 
-            _surahNumber = int.Parse(query.Data);
-            _logger.LogInformation("_surahNumber is {surahNumber}", _surahNumber);
-
-            if (_sectionName == "_audioQuran")
-            {
-                if (_reciterName == "_reciters1")
-                {
-                    await SendDataToUser(botClient, query, 230, cancellationToken);
-                }
-                else if (_reciterName == "_reciters2")
-                {
-                     await SendDataToUser(botClient, query, 670, cancellationToken);
-                }
-                else if (_reciterName == "_reciters3")
-                {
-                    //some code here
-                    await botClient.SendTextMessageAsync(
-                        query.Message.Chat.Id,
-                        text: $"Bu Qorining qiroati botga tez orada qo'shiladi.\nYuzaga kelgan noqulaylik uchun uzr😐 ",
-                        cancellationToken: cancellationToken);
-                }
+                await SendDataToUser(botClient, query, surahId, cancellationToken);
             }
-            else if (_sectionName == "_videoQuran")
+            else if (_reciterName == "_reciters2")
             {
-                await SendDataToUser(botClient, query, 110, cancellationToken);
+                var surahId = (int.Parse(query.Data.Substring(0, 3))) + 670;
+                
+                await SendDataToUser(botClient, query, surahId, cancellationToken);
             }
-            else if (_sectionName == "_alphabet")
+            else if (_reciterName == "_reciters3")
             {
-                await SendDataToUser(botClient, query, 420, cancellationToken);
+                //some code here
+                await botClient.SendTextMessageAsync(
+                    query.Message.Chat.Id,
+                    text: $"Bu Qorining qiroati botga tez orada qo'shiladi.\nYuzaga kelgan noqulaylik uchun uzr😐 ",
+                    cancellationToken: cancellationToken);
             }
-            else if (_sectionName == "_prophet")
-            {
-                await SendDataToUser(botClient, query, 600, cancellationToken);
-            }
-
         }
-        else
+        else if (text == "video")
         {
-            _logger.LogInformation("buttonVlaue is {queryValue}", query.Data);
-        }
+            var surahId = (int.Parse(query.Data.Substring(0, 3))) + 110;
 
+            await SendDataToUser(botClient, query, surahId, cancellationToken);
+        }
+        else if (text == "proph")
+        {
+            var surahId = (int.Parse(query.Data.Substring(0, 3))) + 600;
+
+            await SendDataToUser(botClient, query, surahId, cancellationToken);
+        }
+        else if (text == "alpha")
+        {
+            var surahId = (int.Parse(query.Data.Substring(0, 3))) + 420;
+
+            await SendDataToUser(botClient, query, surahId, cancellationToken);
+        }
+        
     }
 
     private async Task SendDataToUser(ITelegramBotClient botClient,
@@ -66,12 +63,10 @@ public partial class BotUpdateHandler
                                       int id,
                                       CancellationToken cancellationToken)
     {
-        int surahId = _surahNumber + id;
-
         await botClient.ForwardMessageAsync(
-            chatId: query.Message.Chat.Id,
-            fromChatId: -1001407276572,
-            surahId,
-            cancellationToken: cancellationToken);
+           chatId: query.Message.Chat.Id,
+           fromChatId: -1001407276572,
+           id,
+           cancellationToken: cancellationToken);
     }
 }

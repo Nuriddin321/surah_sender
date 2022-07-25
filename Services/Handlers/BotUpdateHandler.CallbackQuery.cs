@@ -26,8 +26,11 @@ public partial class BotUpdateHandler
             "_prophet" or "_alphabet" => HandleProphetAndAlphabetAsync(botClient, query, cancellationToken),
             "_nextLesson1" or "_nextLesson2" or "_nextLesson3" => HandleNextAndBackLessons(botClient, query, cancellationToken),
             "_backLesson1" or "_backLesson2" or "_backLesson3" => HandleNextAndBackLessons(botClient, query, cancellationToken),
-            "_next1" or "_next2" or "_back1" or "_back2" => HandleViewOfSurahsync(botClient, query, cancellationToken),
+            "_next1" or "_next2" or "_back1" or "_back2" => HandleViewOfAudioSurahsync(botClient, query, cancellationToken),
             "_reciters1" or "_reciters2" or "_reciters3" => HandleRecitersAsync(botClient, query, cancellationToken),
+            "_nextVideo1" or "_nextVideo2" or "_backVideo1" or "_backVideo2" => HandleViewOfVideoSurahsync(botClient, query, cancellationToken),
+            "_nextProphet1" or "_nextProphet2" or "_nextProphet3" => HandleNextAndBackProphet(botClient, query, cancellationToken),
+            "_backProphet1" or "_backProphet2" or "_backProphet3" => HandleNextAndBackProphet(botClient, query, cancellationToken),
             _ => HandleSurahNumberAsync(botClient, query, cancellationToken)
         };
    

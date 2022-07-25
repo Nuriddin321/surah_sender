@@ -21,7 +21,7 @@ public partial class BotUpdateHandler
             await botClient.SendTextMessageAsync(
                 query.Message.Chat.Id,
                 text: aboutProphet1,
-                replyMarkup: Lesson1,
+                replyMarkup: Prophet1,
                 cancellationToken: cancellationToken);
         }
 
