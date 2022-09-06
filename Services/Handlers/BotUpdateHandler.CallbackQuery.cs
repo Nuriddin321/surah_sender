@@ -5,7 +5,7 @@ namespace SurahSender.Services;
 public partial class BotUpdateHandler
 {  
     private async Task HandleCallbackQueryAsync(ITelegramBotClient botClient,
-                                          CallbackQuery query,
+                                          CallbackQuery? query,
                                           CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(query);

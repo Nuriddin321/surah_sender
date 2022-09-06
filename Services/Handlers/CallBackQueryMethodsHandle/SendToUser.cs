@@ -63,6 +63,8 @@ public partial class BotUpdateHandler
                                       int id,
                                       CancellationToken cancellationToken)
     {
+        _logger.LogInformation($"{query.Message.Chat.FirstName} ismli userga  channaldan {id} - id dagi message yuborildi ");
+
         await botClient.ForwardMessageAsync(
            chatId: query.Message.Chat.Id,
            fromChatId: -1001407276572,
