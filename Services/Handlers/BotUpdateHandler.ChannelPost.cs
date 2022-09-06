@@ -13,7 +13,6 @@ public partial class BotUpdateHandler
 
         var channelPostMessageId = channelPost.MessageId;
 
-        _logger.LogInformation($"New Data successfully added to channel: {channelPostMessageId}, Name: {channelPost.Type}");
-
+        _logger.LogInformation($"New Data successfully added to channelId {channelPost.Chat.Id} , dataId: {channelPostMessageId}, dataType: {channelPost.Type}");
     }
 }
