@@ -14,5 +14,3 @@ builder.Services.AddHostedService<BotBackgroundService>();
 var app = builder.Build(); 
 
 app.Run();
-
-
